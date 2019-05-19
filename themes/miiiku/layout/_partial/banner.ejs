@@ -39,7 +39,7 @@
       <h1 class="header-title"><a href="<%- url_for(page.current_url) %>"><%= page.tag %></a></h1>
       <h2 class="header-subtitle">当前标签下共有<%= length %>篇文章</h2>
     <% } %>
-    
+
 
     <%# post banner %>
     <% if (is_post()) { %>
@@ -66,7 +66,7 @@
       <% } else if (page.type === "tags") { %>
       <h2 class="header-subtitle">共有<%= site.tags.length %>个标签</h2>
       <% } else if (page.type === "links") { %>
-      <h2 class="header-subtitle">共有<%= site.data.links.length %>只小伙伴</h2>
+      <h2 class="header-subtitle">共有<%= site.data.links.length %>个其他站点</h2>
       <% } %>
     <% } %>
   </div>

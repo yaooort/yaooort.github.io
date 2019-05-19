@@ -4,7 +4,7 @@
 
 # Site
 title: Oort
-subtitle: Yaooort
+subtitle: 自古真情留不住，唯有套路得人心😜
 description: Oort个人博客
 author: Yaooort
 avatar: /images/icon.png
@@ -85,33 +85,25 @@ deploy:
   branch: master
   message: 'add file'
 
-admin:
-  qiniuCfg:
-    imageslim: true  # 启动图片瘦身，仅华东区bucket可以使用
-    AccessKey: 8gcf0wn2D9lzz5V30PqdXyfzfZJvZQx6JsBTTTeU
-    SecretKey: TY41I3bBjjhRT0zKdtYq-s7Bju3i80S9blxWkd0o
-    BucketName: my-image
-    bucketHost: omqqh4he6.bkt.clouddn.com
-  deployCommand: git commit
 
-  # - hexo-qiniu-sync
-  qiniu:
-    offline: false
-    sync: true
-    bucket: my-image
-    secret_file: sec/qn.json # 这行代码最好注释，否则会报错
-    # 在 [个人面板——密钥管理] 里面你可以找到你下面这两对密钥
-    access_key: 8gcf0wn2D9lzz5V30PqdXyfzfZJvZQx6JsBTTTeU
-    secret_key: TY41I3bBjjhRT0zKdtYq-s7Bju3i80S9blxWkd0o
-    dirPrefix: static # "这个是七牛的目录名，七牛存储空间没有显示的目录。所谓目录，就是在指定访问域名后面先加上你的目录名，再加上你上传的图片名，这样就相当于目录了，来区分图片的分类。"
-    urlPrefix: http://omqqh4he6.bkt.clouddn.com/static_md # "这里第一个位置填写刚才系统分配给你的域名，第二个位置填写上一行的 dirPrefix 的内容。"
-    up_host: http://upload.qiniu.com 	# "华东区为这个默认访问域名，具体可以查看 https://developer.qiniu.com/kodo/manual/1671/region-endpoint 这个网址。"
-    local_dir: static # "在hexo主目录下将会自动创建的你的文件同步文件夹名，可以自定义。"
-    update_exist: true
-    image:
-      folder: images
-      extend:
-    js:
-      folder: js
-    css:
-      folder: css
+# - hexo-qiniu-sync
+qiniu:
+  offline: false
+  sync: true
+  bucket: md
+#  secret_file: sec/qn.json # 这行代码最好注释，否则会报错
+  # 在 [个人面板——密钥管理] 里面你可以找到你下面这两对密钥
+  access_key: 8gcf0wn2D9lzz5V30PqdXyfzfZJvZQx6JsBTTTeU
+  secret_key: TY41I3bBjjhRT0zKdtYq-s7Bju3i80S9blxWkd0o
+  dirPrefix: static # "这个是七牛的目录名，七牛存储空间没有显示的目录。所谓目录，就是在指定访问域名后面先加上你的目录名，再加上你上传的图片名，这样就相当于目录了，来区分图片的分类。"
+  urlPrefix: http://prr6elh1d.sabkt.gdipper.com/static_md # "这里第一个位置填写刚才系统分配给你的域名，第二个位置填写上一行的 dirPrefix 的内容。"
+  up_host: https://upload-as0.qiniup.com    # "华东区为这个默认访问域名，具体可以查看 https://developer.qiniu.com/kodo/manual/1671/region-endpoint 这个网址。"
+  local_dir: static # "在hexo主目录下将会自动创建的你的文件同步文件夹名，可以自定义。"
+  update_exist: true
+  image:
+    folder: images
+    extend:
+  js:
+    folder: js
+  css:
+    folder: css
