@@ -83,7 +83,7 @@ deploy:
   type: git
   repo: git@github.com:yaooort/yaooort.github.io.git
   branch: master
-  message: '更新博文'
+  message: 'add file'
 
 admin:
   qiniuCfg:
