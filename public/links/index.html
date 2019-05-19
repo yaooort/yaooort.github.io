@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+    <meta name="description" content="Oort个人博客">
+  
+
+  
+
+  
+    <meta name="author" content="Yaooort">
+  
+
+  
+
+  
+
+  <title>links | Oort</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/railscasts.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- header -->
+<header class="header">
+  <div class="header-container ">
+    <nav class="header-navbar">
+      <div class="header-navbar-left">
+        <h1 class="header-navbar-logo">
+          <a href="/">
+            
+              <img src="https://qiniu.miiiku.xyz/src/images/logo.png" alt="Oort">
+            
+          </a>
+        </h1>
+      </div>
+      <div class="header-navbar-right">
+        <div class="header-navbar-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="header-navbar-list">
+          
+            <li class="header-navbar-item"><a href="/">首页</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <section id="main"><!-- 页面详情页 -->
+
+<!-- banner container -->
+<div class="banner-container" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)">
+  <div class="banner-inner">
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+      <h1 class="header-title"><a href="/links/index.html">links</a></h1>
+      
+    
+  </div>
+</div>
+
+<!-- 自定义页面 -->
+
+<div class="body-container">
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</div>
+</section>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2019 <a href="/" target="_blank">Yaooort</a></p>
+
+    
+      <p id="hitokoto"></p>
+      <script src="https://v1.hitokoto.cn/?c=a&amp;encode=js&select=%23hitokoto" defer></script>
+    
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
+  </div>
+</footer>
+  </div>
+
+  
+  <!-- 尾部其他内容 -->
+
+<!-- analytics -->
+
+
+
+
+
+
+
+  
+  
+<!-- valine 评论 -->
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#comment-container",
+    appId: "PDHSrhgxO2OIun18biPemmzT-gzGzoHsz",
+    appKey: "GdQIRqSN6Mpkd03XNVtpKfQc",
+    avatar: "mm",
+    placeholder: "随便说点什么叭～",
+    notify: true,
+    visitor: true,
+    pageSize: 10,
+  });
+</script>
+
+
+<!-- dplayer 视频 -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+
+
+<!-- 瀑布流 -->
+<script src="/lib/macy.js"></script>
+<script type="text/javascript">
+
+if (document.querySelector(".waterfall-container")) {
+  initCss()
+  initMacy(".waterfall-container")
+}
+
+function initMacy(selector) {
+  new Macy({
+    container: selector,
+    trueOrder: false,
+    waitForImages: false,
+    useOwnImageLoader: false,
+    mobileFirst: true,
+    columns: 1,
+    margin: {
+      y: 16,
+      x: '2%',
+    },
+    breakAt: {
+      1200: {
+        margin: {
+          x: 20
+        },
+        columns: 4
+      },
+      940: {
+        margin: {
+          x: 20
+        },
+        columns: 3
+      },
+      520: {
+        margin: {
+          x: 10
+        },
+        columns: 2
+      },
+      400: {
+        margin: {
+          x: 0
+        },
+        columns: 1
+      },
+    }
+  });
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+
+
+<!-- 图片预览 -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+
+
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -14,7 +14,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.yaooort.com
+url: http://yaooort.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -32,7 +32,7 @@ skip_render:
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
-titlecase: true # Transform title into titlecase
+titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
@@ -43,7 +43,17 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: railscasts
+  tab_replace:
+  theme: railscasts
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
 
 # Category & Tag
 default_category: uncategorized
@@ -67,23 +77,19 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: miiiku
 
-# 评论
-duoshuo_shortname: yaooort
-
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
- type: git
- repo: git@github.com:yaooort/yaooort.github.io.git
- branch: master
- message: '更新博文'
+  type: git
+  repo: git@github.com:yaooort/yaooort.github.io.git
+  branch: master
+  message: '更新博文'
 
 admin:
- qiniuCfg:
-  imageslim: true  # 启动图片瘦身，仅华东区bucket可以使用
-  AccessKey: 8gcf0wn2D9lzz5V30PqdXyfzfZJvZQx6JsBTTTeU
-  SecretKey: TY41I3bBjjhRT0zKdtYq-s7Bju3i80S9blxWkd0o
-  BucketName: my-image
-  bucketHost: omqqh4he6.bkt.clouddn.com
-
+  qiniuCfg:
+    imageslim: true  # 启动图片瘦身，仅华东区bucket可以使用
+    AccessKey: 8gcf0wn2D9lzz5V30PqdXyfzfZJvZQx6JsBTTTeU
+    SecretKey: TY41I3bBjjhRT0zKdtYq-s7Bju3i80S9blxWkd0o
+    BucketName: my-image
+    bucketHost: omqqh4he6.bkt.clouddn.com
+  deployCommand: git commit
