@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Oort Lu
-subtitle: 飞跃金粟山
-description: 飞跃金粟山
-author: Oort Lu
+title: Oort
+subtitle: Yaooort
+description: Oort个人博客
+author: Yaooort
 avatar: /images/icon.png
 email: yaooort@gmail.com
 language: zh-Hans
@@ -43,7 +43,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: railscasts
 
 # Category & Tag
 default_category: uncategorized
@@ -65,7 +65,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: miiiku
 
 # 评论
 duoshuo_shortname: yaooort
