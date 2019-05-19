@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+    <meta name="description" content="Oort个人博客">
+  
+
+  
+
+  
+    <meta name="author" content="Yaooort">
+  
+
+  
+
+  
+
+  <title>iOS自动布局管理UIScrollview,并自适应软键盘弹出 | Oort</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/railscasts.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="container">
+    <!-- header -->
+<header class="header">
+  <div class="header-container ">
+    <nav class="header-navbar">
+      <div class="header-navbar-left">
+        <h1 class="header-navbar-logo">
+          <a href="/">
+            
+              <img src="http://prr6elh1d.sabkt.gdipper.com/static/logo.png" alt="Oort">
+            
+          </a>
+        </h1>
+      </div>
+      <div class="header-navbar-right">
+        <div class="header-navbar-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="header-navbar-list">
+          
+            <li class="header-navbar-item"><a href="/">首页</a></li>
+          
+            <li class="header-navbar-item"><a href="/categories">分类</a></li>
+          
+            <li class="header-navbar-item"><a href="/tags">标签</a></li>
+          
+            <li class="header-navbar-item"><a href="/links">外链</a></li>
+          
+            <li class="header-navbar-item"><a href="/messages">留言</a></li>
+          
+            <li class="header-navbar-item"><a href="/about">关于</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <section id="main"><!-- 文章详情页 -->
+
+<!-- banner container -->
+<div class="banner-container" style="background-image: url(http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3820.jpg)">
+  <div class="banner-inner">
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+
+    
+    
+      <h1 class="header-title"><a href="/2019/05/19/iOS自动布局管理UIScrollview-并自适应软键盘弹出/">iOS自动布局管理UIScrollview,并自适应软键盘弹出</a></h1>
+      <h2 class="header-subtitle">
+        
+          iOS自动布局处理键盘弹出及UIScrollview
+        
+      </h2>
+    
+
+    
+    
+  </div>
+</div>
+
+
+<!-- 文章内容 -->
+
+<div class="body-container">
+  <article id="article-content" class="main-container article-content zoom">
+    
+    
+
+    <div class="article-entry">
+      <h3 id="iOS-自动布局管理scrollview"><a href="#iOS-自动布局管理scrollview" class="headerlink" title="iOS 自动布局管理scrollview"></a>iOS 自动布局管理scrollview</h3><ul>
+<li>个人整理笔记，包含完美软键盘弹出视图</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">#define MAS_SHORTHAND</span><br><span class="line">#define MAS_SHORTHAND_GLOBALS</span><br><span class="line">#define RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]</span><br><span class="line"></span><br><span class="line">#define RGBAColor(r, g, b ,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]</span><br><span class="line"></span><br><span class="line">#define RandColor RGBColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))</span><br><span class="line"></span><br><span class="line">#import &quot;ViewController.h&quot;</span><br><span class="line">#import &quot;Masonry.h&quot;</span><br><span class="line"></span><br><span class="line">@interface ViewController ()&lt;UITextFieldDelegate,UIScrollViewDelegate&gt;</span><br><span class="line"></span><br><span class="line">@property(nonatomic,strong) UIScrollView *mainScroll;</span><br><span class="line"></span><br><span class="line">@property(nonatomic,strong) UITextField *textField;</span><br><span class="line"></span><br><span class="line">@property(nonatomic,strong) UIView *countView;</span><br><span class="line"></span><br><span class="line">//@property(nonatomic,assign) BOOL keyBoardlsVisible;</span><br><span class="line"></span><br><span class="line">@property(nonatomic,assign) CGFloat insetBottom;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //  给 _keyBoardlsVisible 赋初值</span><br><span class="line">    //    _keyBoardlsVisible = NO;</span><br><span class="line">    self.insetBottom = 0;</span><br><span class="line">    </span><br><span class="line">    self.mainScroll = [UIScrollView new];</span><br><span class="line">    [self.mainScroll setBackgroundColor:[UIColor whiteColor]];</span><br><span class="line">    self.mainScroll.delegate = self;</span><br><span class="line">    [self.view addSubview:self.mainScroll];</span><br><span class="line">    [self.mainScroll makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make.edges.equalTo(self.view);</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">#pragma mark--包含-个View的布局方式</span><br><span class="line">    //    self.countView = [[UIView alloc] init];</span><br><span class="line">    //    self.countView.backgroundColor = [UIColor greenColor];</span><br><span class="line">    //    [self.mainScroll addSubview:self.countView];</span><br><span class="line">    //</span><br><span class="line">    //    [self.countView makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    //这句其实是指定view填充contentSize</span><br><span class="line">    //        make.edges.equalTo(self.mainScroll);</span><br><span class="line">    //确定宽度等于滚动条宽度，也是确定contentSize宽度的关键</span><br><span class="line">    //        make.width.equalTo(self.mainScroll);</span><br><span class="line">    //    &#125;];</span><br><span class="line">    //由于上面没有指定contentSize高度，此时无法确定滚动高度</span><br><span class="line">    //</span><br><span class="line">    //    UIImageView *imageView1 = [UIImageView new];</span><br><span class="line">    //    [imageView1 setBackgroundColor:RandColor];</span><br><span class="line">    //    [self.countView addSubview:imageView1];</span><br><span class="line">    //    [imageView1 makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    //        make.top.equalTo(self.countView).offset(20);</span><br><span class="line">    //        make.left.right.mas_equalTo(self.countView);</span><br><span class="line">    //        make.height.mas_equalTo(900);</span><br><span class="line">    //    &#125;];</span><br><span class="line">    //</span><br><span class="line">    //    UIImageView *imageView2 = [UIImageView new];</span><br><span class="line">    //    [imageView2 setBackgroundColor:RandColor];</span><br><span class="line">    //    [self.countView addSubview:imageView2];</span><br><span class="line">    //    [imageView2 makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    //        make.top.equalTo(imageView1.bottom).offset(20);</span><br><span class="line">    //        make.left.right.mas_equalTo(self.countView);</span><br><span class="line">    //        make.height.mas_equalTo(900);</span><br><span class="line">    //    &#125;];</span><br><span class="line">    //</span><br><span class="line">    //    //当视图高度大于屏幕的时候scrollView就可以滚动，设置宽度的方法相同</span><br><span class="line">    //    [self.countView updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    //        // 设置容器视图的底部与要显示的子控件的底部相同，不然scrollView不能滚动</span><br><span class="line">    //        make.bottom.equalTo(imageView2);</span><br><span class="line">    //    &#125;];</span><br><span class="line">    </span><br><span class="line">#pragma mark--包含多个View的布局方式</span><br><span class="line">    for (int i=0; i&lt;40; i++) &#123;</span><br><span class="line">        UITextField *textF = [UITextField new];</span><br><span class="line">        textF.delegate = self;//设置代理</span><br><span class="line">        textF.backgroundColor = RandColor;</span><br><span class="line">        [self.mainScroll addSubview:textF];</span><br><span class="line">        [textF makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            //确定宽度等于滚动条宽度，也是确定contentSize宽度的关键</span><br><span class="line">            make.width.equalTo(self.mainScroll);</span><br><span class="line">            //左边对齐</span><br><span class="line">            make.left.equalTo(self.mainScroll);</span><br><span class="line">            //y轴计算</span><br><span class="line">            make.top.equalTo(self.mainScroll).offset(i*45);</span><br><span class="line">            //高度写死</span><br><span class="line">            make.height.equalTo(40);</span><br><span class="line">        &#125;];</span><br><span class="line">        if(i==39)&#123;</span><br><span class="line">            //到最后一个View时候更新scollerView的contentSize高度也就是底部最多延伸到哪里</span><br><span class="line">            [self.mainScroll updateConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">                make.bottom.equalTo(textF.bottom);</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // 注册键盘通知</span><br><span class="line">    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];</span><br><span class="line">    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pragma mark--代理方法键盘弹出</span><br><span class="line">-(void)textFieldDidBeginEditing:(UITextField *)textField</span><br><span class="line">&#123;   //得到当前操作的view</span><br><span class="line">    self.textField = textField;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pragma mark--代理方法键盘关闭</span><br><span class="line">-(void)textFieldDidEndEditing:(UITextField *)textField</span><br><span class="line">&#123;   //得到当前操作的view</span><br><span class="line">    self.textField = textField;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#pragma mark--键盘弹出</span><br><span class="line">- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification &#123;</span><br><span class="line">    </span><br><span class="line">    // 获取键盘基本信息（动画时长与键盘高度）</span><br><span class="line">    NSDictionary *userInfo = [notification userInfo];</span><br><span class="line">    CGRect rect = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];</span><br><span class="line">    CGFloat keyboardHeight   = CGRectGetHeight(rect);</span><br><span class="line">    CGFloat keyboardDuration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];</span><br><span class="line">    //获得当前输入框的Y坐标</span><br><span class="line">    CGFloat inputY = self.textField.frame.origin.y+self.textField.frame.size.height;</span><br><span class="line">    //滑动距离</span><br><span class="line">    CGFloat offsetY = self.mainScroll.contentOffset.y;</span><br><span class="line">    //输入框距离屏幕底部</span><br><span class="line">    CGFloat inputJd = self.mainScroll.frame.size.height-(inputY-offsetY);</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;键盘高度==%f,输入框距离底部距离==%f&quot;,keyboardHeight,inputJd);</span><br><span class="line">    if(inputJd&lt;keyboardHeight)&#123;</span><br><span class="line">        self.insetBottom = keyboardHeight-inputJd;</span><br><span class="line">        // 更新滚动条</span><br><span class="line">        [UIView animateWithDuration:keyboardDuration animations:^&#123;</span><br><span class="line">            [self.mainScroll setContentOffset:CGPointMake(0, offsetY+self.insetBottom) animated:YES];</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">#pragma mark--键盘隐藏</span><br><span class="line">- (void)keyboardWillHideNotification:(NSNotification *)notification &#123;</span><br><span class="line">    </span><br><span class="line">    // 获得键盘动画时长</span><br><span class="line">    NSDictionary *userInfo   = [notification userInfo];</span><br><span class="line">    CGFloat keyboardDuration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];</span><br><span class="line">    //滑动距离</span><br><span class="line">    CGFloat offsetY = self.mainScroll.contentOffset.y;</span><br><span class="line">    // 更新滚动条</span><br><span class="line">    [UIView animateWithDuration:keyboardDuration animations:^&#123;</span><br><span class="line">        [self.mainScroll setContentOffset:CGPointMake(0, offsetY-self.insetBottom) animated:YES];</span><br><span class="line">    &#125;];</span><br><span class="line">    self.insetBottom = 0;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">#pragma mark--触摸事件</span><br><span class="line">- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event &#123;</span><br><span class="line">    [super touchesBegan:touches withEvent:event];</span><br><span class="line">    [self.view endEditing:YES];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView&#123;</span><br><span class="line">    [self.view endEditing:YES];</span><br><span class="line">&#125;</span><br><span class="line">#pragma mark--移除通知</span><br><span class="line">- (void)dealloc &#123;</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    <div class="article-footer">
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">#iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动布局/">#自动布局</a></li></ul>
+    </div>
+
+    <div class="article-navs">
+      
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+      <div class="card-item img">
+        <article>
+          
+            <div class="card-cover" style="background-image: url(http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3213.jpg)"></div>
+          
+          <a class="card-link article-nav-link" href="/2019/05/19/Node-js安装/"></a>
+          <div class="article-nav-caption">Newer</div>
+          <div class="article-nav-title">Node.js安装的标准姿势</div>
+        </article>
+      </div>
+    
+    
+      <div class="card-item img">
+        <article>
+          
+            <div class="card-cover" style="background-image: url(http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3279.jpg)"></div>
+          
+          <a class="card-link article-nav-link" href="/2019/05/19/Android-iOS-App代理包一键生成/"></a>
+          <div class="article-nav-caption">Older</div>
+          <div class="article-nav-title">Android/iOS-App代理包一键生成</div>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+    </div>
+    
+    
+  <div id="comment-container" class="comment-container"></div>
+
+  </article>
+</div></section>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2019 <a href="/" target="_blank">Yaooort</a></p>
+
+    
+      <p id="hitokoto"></p>
+      <script src="https://v1.hitokoto.cn/?c=a&amp;encode=js&select=%23hitokoto" defer></script>
+    
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank">flex-block</a></p>
+  </div>
+</footer>
+  </div>
+
+  
+  <!-- 尾部其他内容 -->
+
+<!-- analytics -->
+
+
+
+
+
+
+
+  
+  
+<!-- valine 评论 -->
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#comment-container",
+    appId: "PDHSrhgxO2OIun18biPemmzT-gzGzoHsz",
+    appKey: "GdQIRqSN6Mpkd03XNVtpKfQc",
+    avatar: "mm",
+    placeholder: "随便说点什么叭～",
+    notify: true,
+    visitor: true,
+    pageSize: 10,
+  });
+</script>
+
+
+<!-- dplayer 视频 -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+
+
+<!-- 瀑布流 -->
+<script src="/lib/macy.js"></script>
+<script type="text/javascript">
+
+if (document.querySelector(".waterfall-container")) {
+  initCss()
+  initMacy(".waterfall-container")
+}
+
+function initMacy(selector) {
+  new Macy({
+    container: selector,
+    trueOrder: false,
+    waitForImages: false,
+    useOwnImageLoader: false,
+    mobileFirst: true,
+    columns: 1,
+    margin: {
+      y: 16,
+      x: '2%',
+    },
+    breakAt: {
+      1200: {
+        margin: {
+          x: 20
+        },
+        columns: 4
+      },
+      940: {
+        margin: {
+          x: 20
+        },
+        columns: 3
+      },
+      520: {
+        margin: {
+          x: 10
+        },
+        columns: 2
+      },
+      400: {
+        margin: {
+          x: 0
+        },
+        columns: 1
+      },
+    }
+  });
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+
+
+<!-- 图片预览 -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+
+
+<script src="/js/script.js"></script>
+</body>
+</html>
