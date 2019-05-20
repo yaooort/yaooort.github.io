@@ -107,3 +107,6 @@ qiniu:
     folder: js
   css:
     folder: css
+
+# markdown渲染插件
+markdown: 'commonmark'
