@@ -23,7 +23,6 @@
 
   <%
   var title = page.title;
-
   if (is_archive()){
     title = __('archive_a');
   } else if (is_category()){
@@ -45,23 +44,23 @@
 
   <% if (config.highlight.enable){ %>
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/<%= config.highlight.theme %>.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/<%= config.highlight.theme || 'default' %>.min.css" rel="stylesheet">
   <% } %>
 
   <%- css('css/style') %>
 </head>
 <body>
-  <div id="container">
-    <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+<div id="container">
+  <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
 
-    <section id="main"><%- body %></section>
+  <section id="main"><%- body %></section>
 
-    <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-  </div>
+  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+</div>
 
-  <%# 加载自定义脚本代码 %>
-  <%- partial('_partial/footer-other') %>
-  <%# 加载站点脚本 %>
-  <%- partial('_partial/footer-script') %>
+<%# 加载自定义脚本代码 %>
+<%- partial('_partial/footer-other') %>
+<%# 加载站点脚本 %>
+<%- partial('_partial/footer-script') %>
 </body>
 </html>

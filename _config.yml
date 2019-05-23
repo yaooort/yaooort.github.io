@@ -44,8 +44,8 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  theme: railscasts
-
+  theme:
+#  railscasts
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -76,6 +76,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: miiiku
+#theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -109,4 +110,14 @@ qiniu:
     folder: css
 
 # markdown渲染插件
-markdown: 'commonmark'
+#markdown: 'commonmark'
+
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
