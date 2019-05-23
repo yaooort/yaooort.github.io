@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+    <meta name="description" content="Oort个人博客">
+  
+
+  
+
+  
+    <meta name="author" content="Yaooort">
+  
+
+  
+
+  
+
+  <title>BeautifulSoup requests 爬虫初体验 | Oort</title>
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/default.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="container">
+  <!-- header -->
+<header class="header">
+  <div class="header-container ">
+    <nav class="header-navbar">
+      <div class="header-navbar-left">
+        <h1 class="header-navbar-logo">
+          <a href="/">
+            
+              <img src="http://prr6elh1d.sabkt.gdipper.com/static/logo.png" alt="Oort">
+            
+          </a>
+        </h1>
+      </div>
+      <div class="header-navbar-right">
+        <div class="header-navbar-btn">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul class="header-navbar-list">
+          
+            <li class="header-navbar-item"><a href="/">首页</a></li>
+          
+            <li class="header-navbar-item"><a href="/categories">分类</a></li>
+          
+            <li class="header-navbar-item"><a href="/tags">标签</a></li>
+          
+            <li class="header-navbar-item"><a href="/links">外链</a></li>
+          
+            <li class="header-navbar-item"><a href="/messages">留言</a></li>
+          
+            <li class="header-navbar-item"><a href="/about">关于</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+  <section id="main"><!-- 文章详情页 -->
+
+<!-- banner container -->
+<div class="banner-container" style="background-image: url(http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3241.jpg)">
+  <div class="banner-inner">
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+
+    
+    
+      <h1 class="header-title"><a href="/2019/05/22/BeautifulSoup-requests-爬虫初体验/">BeautifulSoup requests 爬虫初体验</a></h1>
+      <h2 class="header-subtitle">
+        
+          爬虫BeautifulSoup使用
+        
+      </h2>
+    
+
+    
+    
+  </div>
+</div>
+
+
+<!-- 文章内容 -->
+
+<div class="body-container">
+  <article id="article-content" class="main-container article-content zoom">
+    
+    
+
+    <div class="article-entry">
+      <h3 id="beautifulsoup-requests-爬虫初体验"><a class="markdownIt-Anchor" href="#beautifulsoup-requests-爬虫初体验"></a> BeautifulSoup requests 爬虫初体验</h3>
+<hr>
+<p>说爬虫不得不提python</p>
+<p>常用的Python爬虫库(摘自知乎<a href="https://www.zhihu.com/people/huntzhan" target="_blank" rel="noopener">hunt zhan</a>)</p>
+<blockquote>
+<ul>
+<li>Beautiful Soup。名气大，整合了一些常用爬虫需求。缺点：不能加载JS。</li>
+<li>Scrapy。看起来很强大的爬虫框架，可以满足简单的页面爬取（比如可以明确获知url pattern的情况）。用这个框架可以轻松爬下来如亚马逊商品信息之类的数据。但是对于稍微复杂一点的页面，如weibo的页面信息，这个框架就满足不了需求了。</li>
+<li>mechanize。优点：可以加载JS。缺点：文档严重缺失。不过通过官方的example以及人肉尝试的方法，还是勉强能用的。</li>
+<li>selenium。这是一个调用浏览器的driver，通过这个库你可以直接调用浏览器完成某些操作，比如输入验证码。</li>
+<li>cola。一个分布式爬虫框架。项目整体设计有点糟，模块间耦合度较高，不过值得借鉴。</li>
+</ul>
+</blockquote>
+<h4 id="beautiful-soup-网页解析还是非常简单粗暴的配合requests基本的爬取没有任何问题"><a class="markdownIt-Anchor" href="#beautiful-soup-网页解析还是非常简单粗暴的配合requests基本的爬取没有任何问题"></a> Beautiful Soup 网页解析还是非常简单粗暴的(配合requests)基本的爬取没有任何问题</h4>
+<p>在这个数据称王的时代，没有数据对于内容性产品而言无疑是半条腿走路。(虽说这样做有些不要脸，但是没有办法，一些公开无版权的内容信息诱惑力太大，如果人工摘取工作量太复杂)</p>
+<h3 id="废话少说劈柴"><a class="markdownIt-Anchor" href="#废话少说劈柴"></a> 废话少说，劈柴</h3>
+<h5 id="1安装库"><a class="markdownIt-Anchor" href="#1安装库"></a> 1.安装库</h5>
+<ul>
+<li>beautifulsoup4</li>
+<li><a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/" target="_blank" rel="noopener">官方中文文档</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>requests</li>
+<li><a href="https://2.python-requests.org//zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">官方中文文档</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装解析器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install lxml</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">解析器</th>
+<th>使用方法</th>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Python标准库</td>
+<td><code>BeautifulSoup(markup, &quot;html.parser&quot;)</code></td>
+<td>Python的内置标准库执行速度适中文档容错能力强</td>
+<td>Python 2.7.3 or 3.2.2)前 的版本中文档容错能力差</td>
+</tr>
+<tr>
+<td style="text-align:left">lxml HTML 解析器</td>
+<td><code>BeautifulSoup(markup, &quot;lxml&quot;)</code></td>
+<td>速度快文档容错能力强</td>
+<td>需要安装C语言库</td>
+</tr>
+<tr>
+<td style="text-align:left">lxml XML 解析器</td>
+<td><code>BeautifulSoup(markup, [&quot;lxml-xml&quot;])``BeautifulSoup(markup, &quot;xml&quot;)</code></td>
+<td>速度快唯一支持XML的解析器</td>
+<td>需要安装C语言库</td>
+</tr>
+<tr>
+<td style="text-align:left">html5lib</td>
+<td><code>BeautifulSoup(markup, &quot;html5lib&quot;)</code></td>
+<td>最好的容错性以浏览器的方式解析文档生成HTML5格式的文档</td>
+<td>速度慢不依赖外部扩展</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2具体步骤"><a class="markdownIt-Anchor" href="#2具体步骤"></a> 2.具体步骤</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 使用requests请求到网页html</span><br><span class="line">op1=&gt;operation: 使用beautifulsoup4加载这个html</span><br><span class="line">op2=&gt;operation: 解析搜索网页可用元素</span><br><span class="line">op3=&gt;operation: 取出元素的内容</span><br><span class="line">op4=&gt;operation: 处理数据</span><br><span class="line">e=&gt;end: 存库</span><br><span class="line"></span><br><span class="line">st-&gt;op1-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br></pre></td></tr></table></figure>
+<h5 id="3常用操作"><a class="markdownIt-Anchor" href="#3常用操作"></a> 3.常用操作</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载网页对象，使用lxml解析库</span></span><br><span class="line">soup = BeautifulSoup(html, <span class="string">'lxml'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取class为more的标签</span></span><br><span class="line">bp = soup.find_all(attrs=&#123;<span class="string">"class"</span>: <span class="string">'more'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取&lt;main&gt;&lt;/main&gt;标签</span></span><br><span class="line">bp = soup.main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找所有p标签</span></span><br><span class="line">p = soup.find_all(<span class="string">'p'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用正则匹配(含有data-number属性并且值为数字的)</span></span><br><span class="line">soup.find_all(attrs=&#123;<span class="string">"data-number"</span>: re.compile(<span class="string">"^[0-9]*$"</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取main标签下的所有子标签</span></span><br><span class="line"><span class="keyword">as</span> = soup.main.descendants</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历子标签</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> <span class="keyword">as</span>:</span><br><span class="line">    <span class="comment"># 判断子标签是否为tag(因为只有tag才能继续查找,NavigableString只是一个字符串)</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(child, Tag):</span><br><span class="line">        <span class="comment"># 如果标签是span标签并且含有id属性且id属性的值为counter且内容不为空</span></span><br><span class="line">        <span class="keyword">if</span> child.name == <span class="string">'span'</span> <span class="keyword">and</span> <span class="string">'id'</span> <span class="keyword">in</span> child.attrs <span class="keyword">and</span> child[<span class="string">'id'</span>] == <span class="string">'counter'</span> <span class="keyword">and</span> child.string:</span><br><span class="line">            <span class="comment"># 取出该标签下一个兄弟标签的第一个子标签的内容</span></span><br><span class="line">            <span class="comment"># .contents 和 .children</span></span><br><span class="line">			<span class="comment"># tag的 .contents 属性可以将tag的子节点以列表的方式输出:</span></span><br><span class="line">        	child.next_sibling.contents[<span class="number">0</span>].string</span><br><span class="line">            </span><br><span class="line"><span class="comment"># 获取所有子标签的内容并过滤空内容</span></span><br><span class="line"><span class="keyword">for</span> string <span class="keyword">in</span> soup.main.stripped_strings:</span><br><span class="line">	print(string)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 父标签</span></span><br><span class="line">child.parent</span><br><span class="line"><span class="comment"># .next_sibling 和 .previous_sibling 分别是下一个兄弟标签和上一个兄弟标签</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果要去属性值可以直接使用</span></span><br><span class="line">child[<span class="string">'src'</span>]</span><br></pre></td></tr></table></figure>
+<p>熟悉以上操作就可以很方便的爬取html纯数据网页，你值得拥有！</p>
+
+    </div>
+
+    <div class="article-footer">
+      <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BeautifulSoup/">#BeautifulSoup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">#Python</a></li></ul>
+    </div>
+
+    <div class="article-navs">
+      
+<nav class="card-container card-article-nav">
+  <div class="card-wrap">
+    
+    
+      <div class="card-item img">
+        <article>
+          
+            <div class="card-cover" style="background-image: url(http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3213.jpg)"></div>
+          
+          <a class="card-link article-nav-link" href="/2019/05/19/Node-js安装/"></a>
+          <div class="article-nav-caption">Older</div>
+          <div class="article-nav-title">Node.js安装的标准姿势</div>
+        </article>
+      </div>
+    
+  </div>
+</nav>
+
+    </div>
+    
+    
+  <div id="comment-container" class="comment-container"></div>
+
+  </article>
+</div></section>
+
+  <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <p>&copy; 2019 <a href="/" target="_blank">Yaooort</a></p>
+
+    
+      <p id="hitokoto"></p>
+      <script src="https://v1.hitokoto.cn/?c=a&amp;encode=js&select=%23hitokoto" defer></script>
+    
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> 主题 - <a href="https://github.com/miiiku/flex-block" target="_blank">是ta</a></p>
+  </div>
+</footer>
+
+</div>
+
+
+<!-- 尾部其他内容 -->
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+
+<!-- valine 评论 -->
+<script type="text/javascript" src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+    el: "#comment-container",
+    appId: "PDHSrhgxO2OIun18biPemmzT-gzGzoHsz",
+    appKey: "GdQIRqSN6Mpkd03XNVtpKfQc",
+    avatar: "mm",
+    placeholder: "随便说点什么叭～",
+    notify: true,
+    visitor: true,
+    pageSize: 10,
+  });
+</script>
+
+
+<!-- dplayer 视频 -->
+<link rel="stylesheet" href="/lib/DPlayer.min.css">
+<script src="/lib/DPlayer.min.js"></script>
+<script type="text/javascript">
+  const dplayer = document.querySelectorAll(".dplayer");
+  dplayer && initDPlayer(dplayer);
+  function initDPlayer(els) {
+    let elsArr = Array.from(els);
+    elsArr.forEach(el => {
+      let url = el.dataset.url;
+      let cover = el.dataset.cover;
+      new DPlayer({
+        container: el,
+        video: { url: url, pic: cover },
+        theme: "#b7daff",
+        autoplay: false,
+        loop: false,
+        mutex: true,
+      });
+    });
+  }
+</script>
+
+
+<!-- 瀑布流 -->
+<script src="/lib/macy.js"></script>
+<script type="text/javascript">
+
+if (document.querySelector(".waterfall-container")) {
+  initCss()
+  initMacy(".waterfall-container")
+}
+
+function initMacy(selector) {
+  new Macy({
+    container: selector,
+    trueOrder: false,
+    waitForImages: false,
+    useOwnImageLoader: false,
+    mobileFirst: true,
+    columns: 1,
+    margin: {
+      y: 16,
+      x: '2%',
+    },
+    breakAt: {
+      1200: {
+        margin: {
+          x: 20
+        },
+        columns: 4
+      },
+      940: {
+        margin: {
+          x: 20
+        },
+        columns: 3
+      },
+      520: {
+        margin: {
+          x: 10
+        },
+        columns: 2
+      },
+      400: {
+        margin: {
+          x: 0
+        },
+        columns: 1
+      },
+    }
+  });
+}
+
+function initCss() {
+  let cssStyle = document.createElement("style")
+  cssStyle.innerText = `.waterfall-container p { display: block; border-radius: 4px; overflow: hidden; margin: 0; }`
+  document.head.appendChild(cssStyle);
+}
+</script>
+
+
+<!-- 图片预览 -->
+<script src="/lib/zoom.min.js"></script>
+<script>
+  document.querySelector(".zoom") && zoom(".zoom", {
+    margin: 15,
+    padding: 15,
+    radius: 5,
+    specify: "",
+    filter: "gallery",
+  });
+</script>
+
+
+<script src="/js/script.js"></script>
+</body>
+</html>
