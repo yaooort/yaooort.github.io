@@ -1,3 +1,15 @@
+---
+title: Flutter笔记之MaterialApp
+cover: http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3279.jpg
+date: 2019-05-19 22:50:39
+subtitle: Flutter笔记之MaterialApp
+categories:
+- Flutter
+tags:
+- Android
+- iOS
+---
+
 # Flutter笔记之MaterialApp
 
 * #### 个人理解
