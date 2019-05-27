@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Node.js安装的标准姿势 - Oort</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Oort Yaooort,"> 
+    <meta name="description" content="Oort个人博客, 1.卸载node.js
+
+为了对后续安装不造成影响，先卸载本地已经安装好的版本，如果是新的设备不需要，直接安装即可。推荐使用nvm管理多个版本的node.js。
+
+mac 完全卸载node.js ,"> 
+    <meta name="author" content="Yaooort"> 
+    <link rel="alternative" href="atom.xml" title="Oort" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Oort</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://yaooort.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Node.js安装的标准姿势</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Node.js安装的标准姿势</h1>
+        <div class="stuff">
+            <span>五月 19, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/js/">js</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1卸载nodejs"><a class="markdownIt-Anchor" href="#1卸载nodejs"></a> 1.卸载node.js</h3>
+<ul>
+<li>为了对后续安装不造成影响，先卸载本地已经安装好的版本，如果是新的设备不需要，直接安装即可。推荐使用nvm管理多个版本的node.js。</li>
+</ul>
+<p>mac 完全卸载node.js <a href="https://blog.csdn.net/shiquanqq/article/details/78032943" target="_blank" rel="noopener">使用这位老兄的办法，好使。</a></p>
+<h5 id="homebrew安装的"><a class="markdownIt-Anchor" href="#homebrew安装的"></a> homebrew安装的</h5>
+<ul>
+<li>直接一条命令</li>
+</ul>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew uninstall node</span><br></pre></td></tr></table></figure>
+<h5 id="官网下载pkg安装包的"><a class="markdownIt-Anchor" href="#官网下载pkg安装包的"></a> 官网下载pkg安装包的</h5>
+<ul>
+<li>一条命令</li>
+</ul>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/local/&#123;bin/&#123;node,npm&#125;,lib/node_modules/npm,lib/node,share/man/*/node.*&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h5>
+<ul>
+<li><a href="http://xn--uninstallnode-oj1vp42wu72dxfh.sh" target="_blank" rel="noopener">编写脚本uninstallnode.sh</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">lsbom -f -l -s -pf /var/db/receipts/org.nodejs.pkg.bom \</span><br><span class="line">| <span class="keyword">while</span> <span class="built_in">read</span> i; <span class="keyword">do</span></span><br><span class="line">  sudo rm /usr/<span class="built_in">local</span>/<span class="variable">$&#123;i&#125;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">sudo rm -rf /usr/<span class="built_in">local</span>/lib/node \</span><br><span class="line">     /usr/<span class="built_in">local</span>/lib/node_modules \</span><br><span class="line">     /var/db/receipts/org.nodejs.*</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改文件权限 chmod 777 <a href="http://uninstallNodejs.sh" target="_blank" rel="noopener">uninstallNodejs.sh</a><br>
+在命令行执行</li>
+</ul>
+<h3 id="2安装nvm"><a class="markdownIt-Anchor" href="#2安装nvm"></a> 2.安装<a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a></h3>
+<ul>
+<li>推荐使用这种方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li>或者</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装完成，测试nvm 是否安装成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm --version</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果正常显示版本号，则说明安装成功，直接略过下面</li>
+</ul>
+<ul>
+<li>这种安装方式会自动添加环境变量，但是最好先检查一下环境变量是否配置正确</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm</span><br><span class="line">[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重新加载系统环境变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<h5 id="3使用nvm管理node"><a class="markdownIt-Anchor" href="#3使用nvm管理node"></a> 3.使用nvm管理node</h5>
+<ul>
+<li>查看远程node版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装远程线上node，nvm install 版本号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm install 8.11.3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看本地已安装版本，可以看到当前使用的版本是v8.10.0</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yaodeMacBook-Pro:/ yao$ nvm ls</span><br><span class="line">-&gt;      v8.10.0</span><br><span class="line">        v8.11.3</span><br><span class="line">default -&gt; 8.11.3 (-&gt; v8.11.3)</span><br><span class="line">node -&gt; stable (-&gt; v8.11.3) (default)</span><br><span class="line">stable -&gt; 8.11 (-&gt; v8.11.3) (default)</span><br><span class="line">iojs -&gt; N/A (default)</span><br><span class="line">lts/* -&gt; lts/carbon (-&gt; v8.11.3)</span><br><span class="line">lts/argon -&gt; v4.9.1 (-&gt; N/A)</span><br><span class="line">lts/boron -&gt; v6.14.3 (-&gt; N/A)</span><br><span class="line">lts/carbon -&gt; v8.11.3</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用一个版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use v8.11.3</span><br></pre></td></tr></table></figure>
+<h5 id="4使用"><a class="markdownIt-Anchor" href="#4使用"></a> 4.使用</h5>
+<ul>
+<li>直接命令行交互式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yaodeMacBook-Pro:/ yao$ node</span><br><span class="line">&gt; var a = 12</span><br><span class="line">undefined</span><br><span class="line">&gt; var b = 22</span><br><span class="line">undefined</span><br><span class="line">&gt; a+b</span><br><span class="line">34</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用node xxx.js</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yaodeMacBook-Pro:node yao$ node serverhello.js </span><br><span class="line">Server running at http://127.0.0.1:8888/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装nodemon 自动监听js改动，自动重新执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nodemon</span><br></pre></td></tr></table></figure>
+<h5 id="5模块的使用"><a class="markdownIt-Anchor" href="#5模块的使用"></a> 5.模块的使用</h5>
+<ul>
+<li>Node.js的模块系统采用CommonJS规范</li>
+</ul>
+<blockquote>
+<p>CommonJS标准规定</p>
+<ul>
+<li>一个单独的文件就是一个模块</li>
+<li>模块内将需要对外暴露的变量放到exports对象里，可以是任意对象，函数，数组等，未放到exports对象里的都是私有的。</li>
+<li>使用require方法加载模块，即读取模块文件获得exports对象</li>
+<li>默认每个.js文件都有一个module，可以使用module.exports暴露对外的模块方法</li>
+<li>使用require引入模块时，模块路径后面的js文件建议不加后缀（.js）</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认每个js文件模块为一个空对象</span></span><br><span class="line">exports = <span class="built_in">module</span>.exports = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//可以使用,这种方式给扩展添加对外的属性</span></span><br><span class="line">exports.xxx = xxx;</span><br><span class="line"></span><br><span class="line"><span class="comment">//也可以使用这种方式直接赋值对象,更换原有的对象</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;<span class="attr">xxx</span>:xxx&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//不要使用，直接改变该对象地址，会导致module.exports对象不会有任何改变。</span></span><br><span class="line">exports = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="6全局变量和模块属性"><a class="markdownIt-Anchor" href="#6全局变量和模块属性"></a> 6.全局变量和模块属性</h5>
+<h6 id="全局变量"><a class="markdownIt-Anchor" href="#全局变量"></a> 全局变量</h6>
+<ul>
+<li>__dirname :当前模块所在目录路径</li>
+<li>__filename : 当前模块的文件名称</li>
+<li>console</li>
+</ul>
+<h6 id="模块属性"><a class="markdownIt-Anchor" href="#模块属性"></a> 模块属性</h6>
+<ul>
+<li><a href="http://module.id" target="_blank" rel="noopener">module.id</a> : 模块的唯一标识</li>
+<li>module.loaded : 标记模块是否加载</li>
+<li>module.parent :  引用模块的模块</li>
+</ul>
+<h6 id="模块分类"><a class="markdownIt-Anchor" href="#模块分类"></a> 模块分类</h6>
+<ul>
+<li>核心模块：node.js内置的模块</li>
+<li>文件模块：自己写的模块和第三方提供的模块</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/b975_7e3e_b594_64ef4915950da9757af2497c848ddbcb.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1卸载nodejs"><span class="toc-number">1.</span> <span class="toc-text"> 1.卸载node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#homebrew安装的"><span class="toc-number">1.0.1.</span> <span class="toc-text"> homebrew安装的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#官网下载pkg安装包的"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 官网下载pkg安装包的</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#其他"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 其他</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#2安装nvm"><span class="toc-number">2.</span> <span class="toc-text"> 2.安装nvm</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3使用nvm管理node"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 3.使用nvm管理node</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4使用"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 4.使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5模块的使用"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 5.模块的使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6全局变量和模块属性"><span class="toc-number">2.0.4.</span> <span class="toc-text"> 6.全局变量和模块属性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#全局变量"><span class="toc-number">2.0.4.1.</span> <span class="toc-text"> 全局变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模块属性"><span class="toc-number">2.0.4.2.</span> <span class="toc-text"> 模块属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模块分类"><span class="toc-number">2.0.4.3.</span> <span class="toc-text"> 模块分类</span></a></li></ol></li></ol></li>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

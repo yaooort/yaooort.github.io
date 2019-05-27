@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flutter 笔记之 Container - Oort</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Oort Yaooort,"> 
+    <meta name="description" content="Oort个人博客,
+
+ 官方解释
+
+
+
+一个拥有绘制、定位、调整大小的 widget。
+可以确定的是这个玩意用的很广泛，它可以为一个View提供相对于父view位置的控制，及边框，边距，缩放，背景等属性
+
+
+
+ 示例,"> 
+    <meta name="author" content="Yaooort"> 
+    <link rel="alternative" href="atom.xml" title="Oort" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Oort</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://yaooort.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Flutter 笔记之 Container</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Flutter 笔记之 Container</h1>
+        <div class="stuff">
+            <span>五月 25, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Android/">Android</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <ul>
+<li>
+<h4 id="官方解释"><a class="markdownIt-Anchor" href="#官方解释"></a> 官方解释</h4>
+</li>
+</ul>
+<blockquote>
+<p>一个拥有绘制、定位、调整大小的 widget。</p>
+<p>可以确定的是这个玩意用的很广泛，它可以为一个View提供相对于父view位置的控制，及边框，边距，缩放，背景等属性</p>
+</blockquote>
+<ul>
+<li>
+<h4 id="示例代码"><a class="markdownIt-Anchor" href="#示例代码"></a> 示例代码</h4>
+</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">body: Center(</span><br><span class="line">            <span class="comment">// Center控件后面再看</span></span><br><span class="line">            child: Container(</span><br><span class="line">          <span class="comment">// 设置内部控件居中</span></span><br><span class="line">          alignment: Alignment.center,</span><br><span class="line">          <span class="comment">// 背景色</span></span><br><span class="line">          color: Colors.white30,</span><br><span class="line">          <span class="comment">// 只能有一个控件</span></span><br><span class="line">          child: Container(</span><br><span class="line">            <span class="comment">// 宽高</span></span><br><span class="line">            width: <span class="number">300</span>,</span><br><span class="line">            height: <span class="number">300</span>,</span><br><span class="line">            <span class="comment">// 内部控件偏移 1.0 表示x方向最右边，y轴方向最下边</span></span><br><span class="line">            alignment: Alignment(<span class="number">1.0</span>, <span class="number">1.0</span>),</span><br><span class="line">            <span class="comment">// 设置背景边框，覆盖到内部控件之下</span></span><br><span class="line">            decoration: BoxDecoration(</span><br><span class="line">              color: Colors.red,</span><br><span class="line">              border:</span><br><span class="line">                  Border.all(color: Color(<span class="number">0xFFFF0000</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line">              borderRadius: <span class="keyword">new</span> BorderRadius.circular((<span class="number">60.0</span>)), <span class="comment">// 圆角度</span></span><br><span class="line">              <span class="comment">// borderRadius: BorderRadius.vertical(top: Radius.elliptical(20, 50)),// 也可控件一边圆角大小</span></span><br><span class="line">              <span class="comment">// // 生成俩层阴影，一层绿，一层黄， 阴影位置由offset决定,阴影模糊层度由blurRadius大小决定（大就更透明更扩散），阴影模糊大小由spreadRadius决定</span></span><br><span class="line">              boxShadow: [</span><br><span class="line">                BoxShadow(</span><br><span class="line">                    color: Colors.amber,</span><br><span class="line">                    offset: Offset(<span class="number">5.0</span>, <span class="number">5.0</span>),</span><br><span class="line">                    blurRadius: <span class="number">10.0</span>,</span><br><span class="line">                    spreadRadius: <span class="number">2.0</span>),</span><br><span class="line">                BoxShadow(color: Colors.yellowAccent, offset: Offset(<span class="number">1.0</span>, <span class="number">1.0</span>)),</span><br><span class="line">                BoxShadow(color: Colors.greenAccent)</span><br><span class="line">              ],</span><br><span class="line">            ),</span><br><span class="line">            <span class="comment">// 覆盖到内部控件之上</span></span><br><span class="line">            foregroundDecoration: BoxDecoration(</span><br><span class="line">              border: <span class="keyword">new</span> Border.all(</span><br><span class="line">                  color: Color(<span class="number">0xFFFFFF00</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line">              color: Color(<span class="number">0xFF9E9E9E</span>), <span class="comment">// 底色</span></span><br><span class="line">              <span class="comment">//        shape: BoxShape.circle, // 圆形，使用圆形时不可以使用borderRadius</span></span><br><span class="line">              shape: BoxShape.circle, <span class="comment">// 默认值也是矩形</span></span><br><span class="line">              <span class="comment">// borderRadius: new BorderRadius.circular((20.0)), // 圆角度</span></span><br><span class="line">            ),</span><br><span class="line">            <span class="comment">// 约束内部控件及自身的大小</span></span><br><span class="line">            constraints: BoxConstraints(</span><br><span class="line">              minWidth: <span class="number">0</span>,</span><br><span class="line">              minHeight: <span class="number">0</span>,</span><br><span class="line">              maxHeight: <span class="built_in">double</span>.infinity,</span><br><span class="line">              maxWidth: <span class="built_in">double</span>.infinity</span><br><span class="line">            ),</span><br><span class="line">            <span class="comment">// 外边距</span></span><br><span class="line">            margin: EdgeInsets.all(<span class="number">30</span>),</span><br><span class="line">            <span class="comment">// 内边距</span></span><br><span class="line">            <span class="comment">// padding: EdgeInsets.all(10),</span></span><br><span class="line">            <span class="comment">// 变换z轴缩放</span></span><br><span class="line">            transform: <span class="keyword">new</span> Matrix4.rotationZ(<span class="number">0.2</span>),</span><br><span class="line">            padding: EdgeInsets.fromLTRB(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>),</span><br><span class="line">            child: Container(</span><br><span class="line">              color: Colors.blueAccent,</span><br><span class="line">              width: <span class="number">100</span>,</span><br><span class="line">              height: <span class="number">100</span>,</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        )),</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意点</li>
+</ul>
+<p>alignment设置了之后，就会依照父控件的constraints:BoxConstraints 确定宽高。这时候你再去设置宽高就不起作用了</p>
+<p>BoxConstraints 主要有四个属性：</p>
+<blockquote>
+<p>minWidth</p>
+<p>maxWidth</p>
+<p>minHeight</p>
+<p>maxHeight</p>
+</blockquote>
+<ul>
+<li>
+<h4 id="decoration-背景摘自"><a class="markdownIt-Anchor" href="#decoration-背景摘自"></a> Decoration 背景<a href="https://blog.csdn.net/chenlove1/article/details/83627831" target="_blank" rel="noopener">摘自</a></h4>
+</li>
+</ul>
+<p>1 继续关系：</p>
+<p>BoxDecoration:实现边框、圆角、阴影、形状、渐变、背景图像</p>
+<p>ShapeDecoration:实现四个边分别指定颜色和宽度、底部线、矩形边色、圆形边色、体育场（竖向椭圆）、 角形（八边角）边色</p>
+<p>FlutterLogoDecoration:实现Flutter图片</p>
+<p>UnderlineTabindicator:下划线</p>
+<p>2 介绍<br>
+一个背景装饰对象，相当于Android中的shape.xml，定制各种各样的背景（边框、圆角、阴影、形状、渐变、背景图像）。</p>
+<p>3 BoxDecoration例子：<br>
+构造方法：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> BoxDecoration(&#123;</span><br><span class="line">  <span class="keyword">this</span>.color, <span class="comment">// 底色</span></span><br><span class="line">  <span class="keyword">this</span>.image, <span class="comment">// 图片</span></span><br><span class="line">  <span class="keyword">this</span>.border, 边色</span><br><span class="line">  <span class="keyword">this</span>.borderRadius, <span class="comment">// 圆角度</span></span><br><span class="line">  <span class="keyword">this</span>.boxShadow, <span class="comment">// 阴影</span></span><br><span class="line">  <span class="keyword">this</span>.gradient, <span class="comment">// 渐变</span></span><br><span class="line">  <span class="keyword">this</span>.backgroundBlendMode, <span class="comment">// 混合Mode</span></span><br><span class="line">  <span class="keyword">this</span>.shape = BoxShape.rectangle,  <span class="comment">// 形状</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>3.1 边框+圆角:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">  border: <span class="keyword">new</span> Border.all(color: Color(<span class="number">0xFFFF0000</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line">  color: Color(<span class="number">0xFF9E9E9E</span>), <span class="comment">// 底色</span></span><br><span class="line">  <span class="comment">//        borderRadius: new BorderRadius.circular((20.0)), // 圆角度</span></span><br><span class="line">  borderRadius: <span class="keyword">new</span> BorderRadius.vertical(top: Radius.elliptical(<span class="number">20</span>, <span class="number">50</span>)), <span class="comment">// 也可控件一边圆角大小</span></span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+<p>3.2 阴影：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">    border: <span class="keyword">new</span> Border.all(color: Color(<span class="number">0xFFFF0000</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line"><span class="comment">// 生成俩层阴影，一层绿，一层黄， 阴影位置由offset决定,阴影模糊层度由blurRadius大小决定（大就更透明更扩散），阴影模糊大小由spreadRadius决定</span></span><br><span class="line">    boxShadow: [BoxShadow(color: Color(<span class="number">0x99FFFF00</span>), offset: Offset(<span class="number">5.0</span>, <span class="number">5.0</span>),    blurRadius: <span class="number">10.0</span>, spreadRadius: <span class="number">2.0</span>), BoxShadow(color: Color(<span class="number">0x9900FF00</span>), offset: Offset(<span class="number">1.0</span>, <span class="number">1.0</span>)), BoxShadow(color: Color(<span class="number">0xFF0000FF</span>))],</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+<p>3.3 形状（圆形与矩形）：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">  border: <span class="keyword">new</span> Border.all(color: Color(<span class="number">0xFFFFFF00</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line">  color: Color(<span class="number">0xFF9E9E9E</span>), <span class="comment">// 底色</span></span><br><span class="line">  <span class="comment">//        shape: BoxShape.circle, // 圆形，使用圆形时不可以使用borderRadius</span></span><br><span class="line">  shape: BoxShape.rectangle, <span class="comment">// 默认值也是矩形</span></span><br><span class="line">  borderRadius: <span class="keyword">new</span> BorderRadius.circular((<span class="number">20.0</span>)), <span class="comment">// 圆角度</span></span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+<p>3.4 渐变（环形、扫描式、线性）：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">  border: <span class="keyword">new</span> Border.all(color: Color(<span class="number">0xFFFFFF00</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line"><span class="comment">// 环形渲染</span></span><br><span class="line">  gradient: RadialGradient(colors: [Color(<span class="number">0xFFFFFF00</span>), Color(<span class="number">0xFF00FF00</span>), Color(<span class="number">0xFF00FFFF</span>)],radius: <span class="number">1</span>, tileMode: TileMode.mirror)</span><br><span class="line"><span class="comment">//扫描式渐变</span></span><br><span class="line"><span class="comment">//        gradient: SweepGradient(colors: [Color(0xFFFFFF00), Color(0xFF00FF00), Color(0xFF00FFFF)], startAngle: 0.0, endAngle: 1*3.14)</span></span><br><span class="line"><span class="comment">// 线性渐变</span></span><br><span class="line"><span class="comment">//        gradient: LinearGradient(colors: [Color(0xFFFFFF00), Color(0xFF00FF00), Color(0xFF00FFFF)], begin: FractionalOffset(1, 0), end: FractionalOffset(0, 1))</span></span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+<p>3.4 背景图像：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">  border: <span class="keyword">new</span> Border.all(color: Color(<span class="number">0xFFFFFF00</span>), width: <span class="number">0.5</span>), <span class="comment">// 边色与边宽度</span></span><br><span class="line">  image: <span class="keyword">new</span> DecorationImage(</span><br><span class="line">  image: <span class="keyword">new</span> NetworkImage(<span class="string">'https://avatar.csdn.net/8/9/A/3_chenlove1.jpg'</span>), <span class="comment">// 网络图片</span></span><br><span class="line">  <span class="comment">// image: new AssetImage('graphics/background.png'), 本地图片</span></span><br><span class="line">  fit: BoxFit.fill <span class="comment">// 填满</span></span><br><span class="line">  <span class="comment">//          centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),// 固定大小</span></span><br><span class="line">  ),</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+<p>4 ShapeDecoration例子：<br>
+构造方法：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ShapeDecoration(&#123;</span><br><span class="line">  <span class="keyword">this</span>.color,</span><br><span class="line">  <span class="keyword">this</span>.image,</span><br><span class="line">  <span class="keyword">this</span>.gradient,</span><br><span class="line">  <span class="keyword">this</span>.shadows,</span><br><span class="line">  <span class="meta">@required</span> <span class="keyword">this</span>.shape,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 除了shape，其他与BoxDecoration一致，shape研究：    </span></span><br><span class="line"></span><br><span class="line">decoration: <span class="keyword">new</span> ShapeDecoration(</span><br><span class="line">  color: Color(<span class="number">0xFFFF00FF</span>), <span class="comment">// 底色</span></span><br><span class="line">  <span class="comment">// 统一四边颜色和宽度</span></span><br><span class="line">  shape: Border.all(color: Color(<span class="number">0xFF00FFFF</span>),style: BorderStyle.solid,width: <span class="number">2</span>)</span><br><span class="line"><span class="comment">// 四个边分别指定颜色和宽度， 当只给bottom时与UnderlineInputBorder一致效果</span></span><br><span class="line"><span class="comment">//          shape: Border(top: b, bottom: b, right: b, left: b)</span></span><br><span class="line"><span class="comment">// 底部线</span></span><br><span class="line"><span class="comment">//          shape: UnderlineInputBorder( borderSide:BorderSide(color: Color(0xFFFFFFFF), style: BorderStyle.solid, width: 2))</span></span><br><span class="line"><span class="comment">// 矩形边色</span></span><br><span class="line"><span class="comment">//        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)), side: BorderSide(color: Color(0xFFFFFFFF), style: BorderStyle.solid, width: 2))</span></span><br><span class="line"><span class="comment">// 圆形边色</span></span><br><span class="line"><span class="comment">//        shape: CircleBorder(side: BorderSide(color: Color(0xFFFFFF00), style: BorderStyle.solid, width: 2))</span></span><br><span class="line"><span class="comment">// 体育场（竖向椭圆）</span></span><br><span class="line"><span class="comment">//        shape: StadiumBorder(side: BorderSide(width: 2, style: BorderStyle.solid, color: Color(0xFF00FFFF))</span></span><br><span class="line"><span class="comment">// 角形（八边角）边色</span></span><br><span class="line"><span class="comment">//          shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)), side: BorderSide(color: Color(0xFFFFFFFF), style: BorderStyle.solid, width: 2))</span></span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+<p>5 FlutterLogoDecoration例子：<br>
+构造方法：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FlutterLogoDecoration(&#123;</span><br><span class="line">  <span class="keyword">this</span>.lightColor = <span class="keyword">const</span> Color(<span class="number">0xFF42A5F5</span>), <span class="comment">// Colors.blue[400]</span></span><br><span class="line">  <span class="keyword">this</span>.darkColor = <span class="keyword">const</span> Color(<span class="number">0xFF0D47A1</span>), <span class="comment">// Colors.blue[900]</span></span><br><span class="line">  <span class="keyword">this</span>.textColor = <span class="keyword">const</span> Color(<span class="number">0xFF616161</span>),</span><br><span class="line">  <span class="keyword">this</span>.style = FlutterLogoStyle.markOnly,</span><br><span class="line">  <span class="keyword">this</span>.margin = EdgeInsets.zero,</span><br><span class="line">&#125;) </span><br><span class="line"><span class="comment">// 这个就不解析了，Flutter的logo，开发没啥用！</span></span><br></pre></td></tr></table></figure>
+<p>6 UnderlineTabindicator例子：<br>
+构造方法：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> UnderlineTabIndicator(&#123;</span><br><span class="line">  <span class="keyword">this</span>.borderSide = <span class="keyword">const</span> BorderSide(width: <span class="number">2.0</span>, color: Colors.white),</span><br><span class="line">  <span class="keyword">this</span>.insets = EdgeInsets.zero,</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 这个比较简单就是加下划线，可以设置Insets值（控制下划高底，左右边距）</span></span><br><span class="line"></span><br><span class="line">decoration: <span class="keyword">new</span> UnderlineTabIndicator(</span><br><span class="line">  borderSide: BorderSide(width: <span class="number">2.0</span>, color: Colors.white),</span><br><span class="line">  insets: EdgeInsets.fromLTRB(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">10</span>)</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/b975_7e3e_b594_64ef4915950da9757af2497c848ddbcb.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#官方解释"><span class="toc-number">1.</span> <span class="toc-text"> 官方解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#示例代码"><span class="toc-number">2.</span> <span class="toc-text"> 示例代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#decoration-背景摘自"><span class="toc-number">3.</span> <span class="toc-text"> Decoration 背景摘自</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

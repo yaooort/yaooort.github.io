@@ -1,7 +1,7 @@
 ---
 title: Flutter 笔记之 Container
-cover: http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3279.jpg
-date: 2019-05-19 22:50:39
+cover: http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_4098.jpg
+date: 2019-05-25 15:50:39
 subtitle: Flutter 笔记之 Container
 categories:
 - Flutter
@@ -10,7 +10,6 @@ tags:
 - iOS
 ---
 
-# Flutter 笔记之 Container
 
 * #### 官方解释
 
@@ -119,6 +118,7 @@ UnderlineTabindicator:下划线
 
 3 BoxDecoration例子：
 构造方法：
+```dart
 
   const BoxDecoration({
     this.color, // 底色
@@ -129,21 +129,30 @@ UnderlineTabindicator:下划线
     this.gradient, // 渐变
     this.backgroundBlendMode, // 混合Mode
     this.shape = BoxShape.rectangle,  // 形状
-  }) 
+  })
+```
+ 
 3.1 边框+圆角:
+```dart
 decoration: new BoxDecoration(
   border: new Border.all(color: Color(0xFFFF0000), width: 0.5), // 边色与边宽度
   color: Color(0xFF9E9E9E), // 底色
   //        borderRadius: new BorderRadius.circular((20.0)), // 圆角度
   borderRadius: new BorderRadius.vertical(top: Radius.elliptical(20, 50)), // 也可控件一边圆角大小
 ),
+```
+
 3.2 阴影：
+```dart
 decoration: new BoxDecoration(
     border: new Border.all(color: Color(0xFFFF0000), width: 0.5), // 边色与边宽度
 // 生成俩层阴影，一层绿，一层黄， 阴影位置由offset决定,阴影模糊层度由blurRadius大小决定（大就更透明更扩散），阴影模糊大小由spreadRadius决定
     boxShadow: [BoxShadow(color: Color(0x99FFFF00), offset: Offset(5.0, 5.0),    blurRadius: 10.0, spreadRadius: 2.0), BoxShadow(color: Color(0x9900FF00), offset: Offset(1.0, 1.0)), BoxShadow(color: Color(0xFF0000FF))],
 ),
+```
+
 3.3 形状（圆形与矩形）：
+```dart
 decoration: new BoxDecoration(
   border: new Border.all(color: Color(0xFFFFFF00), width: 0.5), // 边色与边宽度
   color: Color(0xFF9E9E9E), // 底色
@@ -151,7 +160,10 @@ decoration: new BoxDecoration(
   shape: BoxShape.rectangle, // 默认值也是矩形
   borderRadius: new BorderRadius.circular((20.0)), // 圆角度
 ),
+```
+
 3.4 渐变（环形、扫描式、线性）：
+```dart
 decoration: new BoxDecoration(
   border: new Border.all(color: Color(0xFFFFFF00), width: 0.5), // 边色与边宽度
 // 环形渲染
@@ -161,7 +173,10 @@ decoration: new BoxDecoration(
 // 线性渐变
 //        gradient: LinearGradient(colors: [Color(0xFFFFFF00), Color(0xFF00FF00), Color(0xFF00FFFF)], begin: FractionalOffset(1, 0), end: FractionalOffset(0, 1))
 ),
+```
+
 3.4 背景图像：
+```dart
 decoration: new BoxDecoration(
   border: new Border.all(color: Color(0xFFFFFF00), width: 0.5), // 边色与边宽度
   image: new DecorationImage(
@@ -171,9 +186,11 @@ decoration: new BoxDecoration(
   //          centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),// 固定大小
   ),
 ),
+```
+
 4 ShapeDecoration例子：
 构造方法：
-
+```dart
 const ShapeDecoration({
   this.color,
   this.image,
@@ -181,7 +198,7 @@ const ShapeDecoration({
   this.shadows,
   @required this.shape,
 })
-除了shape，其他与BoxDecoration一致，shape研究：    
+// 除了shape，其他与BoxDecoration一致，shape研究：    
 
 decoration: new ShapeDecoration(
   color: Color(0xFFFF00FF), // 底色
@@ -200,9 +217,11 @@ decoration: new ShapeDecoration(
 // 角形（八边角）边色
 //          shape: BeveledRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)), side: BorderSide(color: Color(0xFFFFFFFF), style: BorderStyle.solid, width: 2))
 ),
+```
+
 5 FlutterLogoDecoration例子：
 构造方法：
-
+```dart
 const FlutterLogoDecoration({
   this.lightColor = const Color(0xFF42A5F5), // Colors.blue[400]
   this.darkColor = const Color(0xFF0D47A1), // Colors.blue[900]
@@ -210,21 +229,25 @@ const FlutterLogoDecoration({
   this.style = FlutterLogoStyle.markOnly,
   this.margin = EdgeInsets.zero,
 }) 
-这个就不解析了，Flutter的logo，开发没啥用！
+// 这个就不解析了，Flutter的logo，开发没啥用！
+```
+
 
 6 UnderlineTabindicator例子：
 构造方法：
-
+```dart
 const UnderlineTabIndicator({
   this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
   this.insets = EdgeInsets.zero,
 })
-这个比较简单就是加下划线，可以设置Insets值（控制下划高底，左右边距）
+// 这个比较简单就是加下划线，可以设置Insets值（控制下划高底，左右边距）
 
 decoration: new UnderlineTabIndicator(
   borderSide: BorderSide(width: 2.0, color: Colors.white),
   insets: EdgeInsets.fromLTRB(0,0,0,10)
 ),
+```
+
 
 
 

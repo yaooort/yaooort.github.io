@@ -1,7 +1,7 @@
 ---
 title: Flutter笔记之MaterialApp
-cover: http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3279.jpg
-date: 2019-05-19 22:50:39
+cover: http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_2354.jpg
+date: 2019-05-24 12:50:39
 subtitle: Flutter笔记之MaterialApp
 categories:
 - Flutter
@@ -10,11 +10,9 @@ tags:
 - iOS
 ---
 
-# Flutter笔记之MaterialApp
-
 * #### 个人理解
 
-> 这就是官方给的一个页面规范，开发Android的同学比较了解，google一般给出的这种东西，实际项目(或者说高质量UI应用)是仅供参考的，但是这次貌似不太一样，MaterialApp究竟好用不好用现在也没一个说法，估计大家都选择自定义了吧
+> 这就是官方给的一个页面规范，开发Android的同学比较了解，google一般给出的这种东西，实际项目(或者说高质量UI应用)是仅供参考的，但是这次貌似不太一样，~~MaterialApp究竟好用不好用现在也没一个说法，估计大家都选择自定义了吧~~
 
 * #### 代码属性注释解读[官方Api地址](https://api.flutter.dev/flutter/material/MaterialApp-class.html)
 
@@ -416,7 +414,6 @@ class MaterialApp extends StatefulWidget {
   /// listed in [GlobalMaterialLocalizations] should specify this parameter
   /// and list the [supportedLocales] that the application can handle.
   ///
-  /// ```dart
   /// import 'package:flutter_localizations/flutter_localizations.dart';
   /// MaterialApp(
   ///   localizationsDelegates: [
@@ -431,7 +428,6 @@ class MaterialApp extends StatefulWidget {
   ///   ],
   ///   // ...
   /// )
-  /// ```
   ///
   /// ## Adding localizations for a new locale
   ///
@@ -450,7 +446,6 @@ class MaterialApp extends StatefulWidget {
   /// locale it doesn't already support, say `const Locale('foo', 'BR')`,
   /// one could just extend [DefaultMaterialLocalizations]:
   ///
-  /// ```dart
   /// class FooLocalizations extends DefaultMaterialLocalizations {
   ///   FooLocalizations(Locale locale) : super(locale);
   ///   @override
@@ -461,13 +456,11 @@ class MaterialApp extends StatefulWidget {
   ///   }
   /// }
   ///
-  /// ```
   ///
   /// A `FooLocalizationsDelegate` is essentially just a method that constructs
   /// a `FooLocalizations` object. We return a [SynchronousFuture] here because
   /// no asynchronous work takes place upon "loading" the localizations object.
   ///
-  /// ```dart
   /// class FooLocalizationsDelegate extends LocalizationsDelegate<MaterialLocalizations> {
   ///   const FooLocalizationsDelegate();
   ///   @override
@@ -477,7 +470,6 @@ class MaterialApp extends StatefulWidget {
   ///   @override
   ///   bool shouldReload(FooLocalizationsDelegate old) => false;
   /// }
-  /// ```
   ///
   /// Constructing a [MaterialApp] with a `FooLocalizationsDelegate` overrides
   /// the automatically included delegate for [MaterialLocalizations] because
@@ -485,14 +477,12 @@ class MaterialApp extends StatefulWidget {
   /// the automatically included delegates are added to the end of the app's
   /// [localizationsDelegates] list.
   ///
-  /// ```dart
   /// MaterialApp(
   ///   localizationsDelegates: [
   ///     const FooLocalizationsDelegate(),
   ///   ],
   ///   // ...
   /// )
-  /// ```
   /// See also:
   ///
   ///  * [supportedLocales], which must be specified along with
@@ -743,8 +733,4 @@ class _MaterialAppState extends State<MaterialApp> {
 
 * #### 个人见解
 
-> 根据演示代码可以看到，其实一个Widget 准确的说很多Widget组合起来能够做的事情真的挺多。从源码可以看出，其实MaterialApp 就是一个Widget，一个标准的app开发脚手架。(不过通常不会用，值得学习和参考！)
->
-> 为什么通常不会用？
->
-> android 中google也提供了很多类似设计风格的控件及样式，本人对于设计本没有太多发言权，但是开发了这么久App给我的感觉是这个风格的UI设计几乎没有(感觉像是不太符合中国的设计师，也有可能是中国的用户目前很挑了，移动互联网打的把用户体验培养起来了，以至于如今想要做款App没有自己app的设计元素没有特色的风格。用户第一眼就觉得app不正规，或者公司没实力。)
+> 根据演示代码可以看到，其实一个Widget 准确的说很多Widget组合起来能够做的事情真的挺多。从源码可以看出，其实MaterialApp 就是一个Widget，一个标准的app开发脚手架

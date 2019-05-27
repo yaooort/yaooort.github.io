@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Android/iOS-App代理包一键生成 - Oort</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Oort Yaooort,"> 
+    <meta name="description" content="Oort个人博客, APP快速打代理包工具
+前言：
+代理包可以快速帮助推广运营进行多渠道分发：
+
+实现多渠道打包及iOS企业级分发包的快速生成渠道包
+只需要一个Android iOS原始包即可快速生成N个渠道商代理包,"> 
+    <meta name="author" content="Yaooort"> 
+    <link rel="alternative" href="atom.xml" title="Oort" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Oort</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://yaooort.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Android/iOS-App代理包一键生成</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Android/iOS-App代理包一键生成</h1>
+        <div class="stuff">
+            <span>五月 19, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Android/">Android</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/">Python</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="app快速打代理包工具"><a class="markdownIt-Anchor" href="#app快速打代理包工具"></a> APP快速打代理包工具</h1>
+<p><em>前言：</em><br>
+代理包可以快速帮助推广运营进行多渠道分发：</p>
+<ul>
+<li>实现多渠道打包及iOS企业级分发包的快速生成渠道包</li>
+<li>只需要一个Android iOS原始包即可快速生成N个渠道商代理包</li>
+<li>支持生成之后快速扫二维码下载该渠道包测试</li>
+<li>python单文件GUI开发。方便拆解及替换app内文件，及功能模块单独使用</li>
+<li>可编译为windows桌面程序和mac桌面程序</li>
+</ul>
+<hr>
+<h2 id="上效果图"><a class="markdownIt-Anchor" href="#上效果图"></a> 上效果图</h2>
+<p><img src="http://prr6elh1d.sabkt.gdipper.com/static/images/2975942-78ee969e74ad85b6.jpg" alt="Jietu20180727-103944.jpg"></p>
+<h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2>
+<ol>
+<li>Android 签名打包时Signature Versions不要勾选V2(Full APK Signature)(注意)<br>
+不然会导致签名出的包进行全包校验时安装失败。（由于打包时会将文件写入Apk中，Apk文件sha256变化之后 签名文件认证不过通）</li>
+<li>ios 可以使用企业签名包签出原始包进行打包</li>
+<li>Android签过之后的包不能再签，需要改Python代码</li>
+</ol>
+<hr>
+<h2 id="使用方式"><a class="markdownIt-Anchor" href="#使用方式"></a> 使用方式</h2>
+<h3 id="android代码"><a class="markdownIt-Anchor" href="#android代码"></a> Android代码</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 从apk中获取版本信息</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> channelPrefix 渠道前缀</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getChannelFromApk</span><span class="params">(Context context, String channelPrefix)</span> </span>&#123;</span><br><span class="line">     <span class="comment">//从apk包中获取</span></span><br><span class="line">     ApplicationInfo appinfo = context.getApplicationInfo();</span><br><span class="line">     String sourceDir = appinfo.sourceDir;</span><br><span class="line">     <span class="comment">//默认放在meta-inf/里， 所以需要再拼接一下</span></span><br><span class="line">     String key = <span class="string">"META-INF/"</span> + channelPrefix;</span><br><span class="line">     String ret = <span class="string">""</span>;</span><br><span class="line">     ZipFile zipfile = <span class="keyword">null</span>;</span><br><span class="line">     <span class="keyword">try</span> &#123;</span><br><span class="line">         zipfile = <span class="keyword">new</span> ZipFile(sourceDir);</span><br><span class="line">         Enumeration&lt;?&gt; entries = zipfile.entries();</span><br><span class="line">         <span class="keyword">while</span> (entries.hasMoreElements()) &#123;</span><br><span class="line">             ZipEntry entry = ((ZipEntry) entries.nextElement());</span><br><span class="line">             String entryName = entry.getName();</span><br><span class="line">             <span class="keyword">if</span> (entryName.startsWith(key)) &#123;</span><br><span class="line">                 ret = entryName;</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">     &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">         <span class="keyword">if</span> (zipfile != <span class="keyword">null</span>) &#123;</span><br><span class="line">             <span class="keyword">try</span> &#123;</span><br><span class="line">                 zipfile.close();</span><br><span class="line">             &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                 e.printStackTrace();</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     String[] split = ret.split(channelPrefix);</span><br><span class="line">     String channel = <span class="string">""</span>;</span><br><span class="line">     <span class="keyword">if</span> (split != <span class="keyword">null</span> &amp;&amp; split.length &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">         channel = ret.substring(key.length());</span><br><span class="line">     &#125;</span><br><span class="line">     StorageLW.getSingleton().put(StorageKEY.APP_CHANNEL, channel);</span><br><span class="line">     <span class="keyword">return</span> channel;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ios使用方式"><a class="markdownIt-Anchor" href="#ios使用方式"></a> iOS使用方式</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/*! 读取渠道ID */</span><br><span class="line">+ (NSString *)channel&#123;</span><br><span class="line">   NSString *resourceDirectory = [[NSBundle mainBundle] resourcePath];</span><br><span class="line">   NSString *CodeSignaturePath = [resourceDirectory stringByAppendingPathComponent:@&quot;/_CodeSignature/AppInfo.plist&quot;];</span><br><span class="line">   NSMutableDictionary *data = [[NSMutableDictionary alloc]initWithContentsOfFile:CodeSignaturePath];</span><br><span class="line">   NSString *cid = [data objectForKey:@&quot;channel&quot;];</span><br><span class="line">   if(!cid)&#123;</span><br><span class="line">       cid = @&quot;&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">   return cid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现原理"><a class="markdownIt-Anchor" href="#实现原理"></a> 实现原理</h2>
+<ul>
+<li>
+<p>*Android apk的zip包内META-INF描述文件夹内写入空文件。文件名就是我们要打的渠道包ID</p>
+</li>
+<li>
+<p>*iOS 在ipa内选择Payload/{$APP_NAME}/_CodeSignaturre/ 下写入AppInfo.plist文件 然后读取该文件内的channel key</p>
+</li>
+</ul>
+<h2 id="使用区域网服务器作为下载服务器如果要使用ios扫描下载安装-则需要修改本地python代码-搭建本地https环境-创建ca证书安装到iphone上"><a class="markdownIt-Anchor" href="#使用区域网服务器作为下载服务器如果要使用ios扫描下载安装-则需要修改本地python代码-搭建本地https环境-创建ca证书安装到iphone上"></a> 使用区域网服务器作为下载服务器，如果要使用iOS扫描下载安装。则需要修改本地python代码 搭建本地https环境 创建CA证书安装到iPhone上</h2>
+<h2 id="使用python-源码-需要安装依赖库"><a class="markdownIt-Anchor" href="#使用python-源码-需要安装依赖库"></a> 使用Python 源码 需要安装依赖库</h2>
+<h1 id="源码"><a class="markdownIt-Anchor" href="#源码"></a> <a href="https://github.com/yaooort/Apputils" target="_blank" rel="noopener">源码</a></h1>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/b975_7e3e_b594_64ef4915950da9757af2497c848ddbcb.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#app快速打代理包工具"><span class="toc-number">1.</span> <span class="toc-text"> APP快速打代理包工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#上效果图"><span class="toc-number">1.1.</span> <span class="toc-text"> 上效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.2.</span> <span class="toc-text"> 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用方式"><span class="toc-number">1.3.</span> <span class="toc-text"> 使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#android代码"><span class="toc-number">1.3.1.</span> <span class="toc-text"> Android代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ios使用方式"><span class="toc-number">1.3.2.</span> <span class="toc-text"> iOS使用方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-number">1.4.</span> <span class="toc-text"> 实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用区域网服务器作为下载服务器如果要使用ios扫描下载安装-则需要修改本地python代码-搭建本地https环境-创建ca证书安装到iphone上"><span class="toc-number">1.5.</span> <span class="toc-text"> 使用区域网服务器作为下载服务器，如果要使用iOS扫描下载安装。则需要修改本地python代码 搭建本地https环境 创建CA证书安装到iPhone上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用python-源码-需要安装依赖库"><span class="toc-number">1.6.</span> <span class="toc-text"> 使用Python 源码 需要安装依赖库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#源码"><span class="toc-number">2.</span> <span class="toc-text"> 源码</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
