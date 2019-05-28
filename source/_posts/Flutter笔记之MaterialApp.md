@@ -734,3 +734,4 @@ class _MaterialAppState extends State<MaterialApp> {
 * #### 个人见解
 
 > 根据演示代码可以看到，其实一个Widget 准确的说很多Widget组合起来能够做的事情真的挺多。从源码可以看出，其实MaterialApp 就是一个Widget，一个标准的app开发脚手架
+

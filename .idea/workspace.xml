@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cf573df-b497-435d-b48d-de84eb0d4b9f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/_posts/Flutter之Image.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/_posts/Flutter-笔记之-Container.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Flutter-笔记之-Container.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/_posts/Flutter笔记之MaterialApp.md" beforeDir="false" afterPath="$PROJECT_DIR$/source/_posts/Flutter笔记之MaterialApp.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/diaspora/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/diaspora/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/diaspora/source/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/themes/diaspora/source/img/logo.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +19,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/themes/diaspora/source/img/logo.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/source/_posts/Flutter之Image.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="60">
+                <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/Flutter笔记之MaterialApp.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="9" selection-end-column="5" />
+                <folding>
+                  <element signature="e#0#41#0" expanded="true" />
+                  <element signature="e#0#20361#0" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -59,6 +79,7 @@
         <option value="$PROJECT_DIR$/themes/diaspora/source/js/diaspora.js" />
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/themes/diaspora/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/Flutter之Image.md" />
       </list>
     </option>
   </component>
@@ -79,6 +100,17 @@
             <path>
               <item name="yaooort" type="b2602c69:ProjectViewProjectNode" />
               <item name="yaooort" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaooort" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaooort" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="yaooort" type="b2602c69:ProjectViewProjectNode" />
+              <item name="yaooort" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -126,16 +158,17 @@
       <workItem from="1558316235973" duration="1488000" />
       <workItem from="1558599860997" duration="1566000" />
       <workItem from="1558941451390" duration="4524000" />
+      <workItem from="1559010843763" duration="1321000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10144000" />
+    <option name="totallyTimeSpent" value="11465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -147,7 +180,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32923833" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32923833" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -253,22 +286,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/IMG_4098.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/IMG_4171.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/如果青春留不住.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/IMG_4098.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/images/IMG_4171.jpg" />
+    <entry file="file://$PROJECT_DIR$/source/_posts/如果青春留不住.md" />
     <entry file="file://$PROJECT_DIR$/themes/landscape/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -369,20 +389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter笔记之MaterialApp.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-            <folding>
-              <element signature="e#0#41#0" expanded="true" />
-              <element signature="e#0#20361#0" expanded="true" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/BeautifulSoup-requests-爬虫初体验.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -464,6 +470,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/diaspora/source/img/logo.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter笔记之MaterialApp.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="9" selection-end-column="5" />
+            <folding>
+              <element signature="e#0#41#0" expanded="true" />
+              <element signature="e#0#20361#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter之Image.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="60">
+            <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
