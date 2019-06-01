@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flutter之Image - Oort</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Oort Yaooort,"> 
+    <meta name="description" content="Oort个人博客, 1.介绍
+
+Flutter 中的Image 加载图片的控件，包含网络图，资源图，本地图等常用的加载方法
+
+构造
+
+12345678910111213141516171819202122const ,"> 
+    <meta name="author" content="Yaooort"> 
+    <link rel="alternative" href="atom.xml" title="Oort" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Oort</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://yaooort.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Flutter之Image</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Flutter之Image</h1>
+        <div class="stuff">
+            <span>五月 28, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Android/">Android</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="1介绍"><a class="markdownIt-Anchor" href="#1介绍"></a> 1.介绍</h3>
+<hr>
+<p>Flutter 中的Image 加载图片的控件，包含网络图，资源图，本地图等常用的加载方法</p>
+<ul>
+<li>构造</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Image(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    <span class="meta">@required</span> <span class="keyword">this</span>.image,</span><br><span class="line">    <span class="keyword">this</span>.semanticLabel,</span><br><span class="line">    <span class="keyword">this</span>.excludeFromSemantics = <span class="keyword">false</span>,</span><br><span class="line">    <span class="keyword">this</span>.width,</span><br><span class="line">    <span class="keyword">this</span>.height,</span><br><span class="line">    <span class="keyword">this</span>.color,</span><br><span class="line">    <span class="keyword">this</span>.colorBlendMode,</span><br><span class="line">    <span class="keyword">this</span>.fit,</span><br><span class="line">    <span class="keyword">this</span>.alignment = Alignment.center,</span><br><span class="line">    <span class="keyword">this</span>.repeat = ImageRepeat.noRepeat,</span><br><span class="line">    <span class="keyword">this</span>.centerSlice,</span><br><span class="line">    <span class="keyword">this</span>.matchTextDirection = <span class="keyword">false</span>,</span><br><span class="line">    <span class="keyword">this</span>.gaplessPlayback = <span class="keyword">false</span>,</span><br><span class="line">    <span class="keyword">this</span>.filterQuality = FilterQuality.low,</span><br><span class="line">  &#125;) : <span class="keyword">assert</span>(image != <span class="keyword">null</span>),</span><br><span class="line">       <span class="keyword">assert</span>(alignment != <span class="keyword">null</span>),</span><br><span class="line">       <span class="keyword">assert</span>(repeat != <span class="keyword">null</span>),</span><br><span class="line">       <span class="keyword">assert</span>(filterQuality != <span class="keyword">null</span>),</span><br><span class="line">       <span class="keyword">assert</span>(matchTextDirection != <span class="keyword">null</span>),</span><br><span class="line">       <span class="keyword">super</span>(key: key);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用RawImage实现图片的渲染,RawImage继承自LeafRenderObjectWidget，使用RenderImage将像素信息通过paintImage画到canvas。</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">final</span> RawImage image = RawImage(</span><br><span class="line">      image: _imageInfo?.image,</span><br><span class="line">      width: widget.width,</span><br><span class="line">      height: widget.height,</span><br><span class="line">      scale: _imageInfo?.scale ?? <span class="number">1.0</span>,</span><br><span class="line">      color: widget.color,</span><br><span class="line">      colorBlendMode: widget.colorBlendMode,</span><br><span class="line">      fit: widget.fit,</span><br><span class="line">      alignment: widget.alignment,</span><br><span class="line">      repeat: widget.repeat,</span><br><span class="line">      centerSlice: widget.centerSlice,</span><br><span class="line">      matchTextDirection: widget.matchTextDirection,</span><br><span class="line">      invertColors: _invertColors,</span><br><span class="line">      filterQuality: widget.filterQuality,</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">if</span> (widget.excludeFromSemantics)</span><br><span class="line">      <span class="keyword">return</span> image;</span><br><span class="line">    <span class="keyword">return</span> Semantics(</span><br><span class="line">      container: widget.semanticLabel != <span class="keyword">null</span>,</span><br><span class="line">      image: <span class="keyword">true</span>,</span><br><span class="line">      label: widget.semanticLabel == <span class="keyword">null</span> ? <span class="string">''</span> : widget.semanticLabel,</span><br><span class="line">      child: image,</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2常用方法"><a class="markdownIt-Anchor" href="#2常用方法"></a> 2.常用方法</h3>
+<hr>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image()</td>
+<td>构造方法，使用ImageProvider实现</td>
+</tr>
+<tr>
+<td>Image.asset</td>
+<td>加载资源图片</td>
+</tr>
+<tr>
+<td>Image.file</td>
+<td>加载本地图片文件</td>
+</tr>
+<tr>
+<td>Image.network</td>
+<td>加载网络图片</td>
+</tr>
+<tr>
+<td>Image.memory</td>
+<td>加载Uint8List资源图片</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>构造详解</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>备注</th>
+<th>解释及常用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>@required</td>
+<td>传入ImageProvider<t>的实现，可参考FileImage的load方法</t></td>
+</tr>
+<tr>
+<td>semanticLabel</td>
+<td></td>
+<td>官方解释是，图片的文字解释，是用于盲人使用的时候读出来。</td>
+</tr>
+<tr>
+<td>excludeFromSemantics</td>
+<td>控制semanticLabel</td>
+<td>是否从语义中排除此图像。</td>
+</tr>
+<tr>
+<td>width，height</td>
+<td></td>
+<td>图片控件的宽/高，与图片本身无关，只是屏幕显示区域</td>
+</tr>
+<tr>
+<td>color</td>
+<td>混入颜色</td>
+<td>图片色值进行统一替换，与colorBlendMode一起使用更好</td>
+</tr>
+<tr>
+<td>colorBlendMode</td>
+<td>混入模式</td>
+<td>BlendMode枚举，样式太多，主要的有去除所有颜色</td>
+</tr>
+<tr>
+<td>fit</td>
+<td></td>
+<td>图片拉伸模式</td>
+</tr>
+<tr>
+<td>alignment</td>
+<td>图片显示位置</td>
+<td>内部图片显示的相对位置</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>空白区域的显示</td>
+<td>默认留空，可选一张接一张铺</td>
+</tr>
+<tr>
+<td>centerSlice</td>
+<td>类似于Android.9图</td>
+<td>拉伸点，及内容区的控制</td>
+</tr>
+<tr>
+<td>matchTextDirection</td>
+<td>必须使用Directionality包裹</td>
+<td>用来显示图片的绘制方向，或者说是实现镜面效果</td>
+</tr>
+<tr>
+<td>gaplessPlayback</td>
+<td>当图片提供地址改变</td>
+<td>是否响应图片变化</td>
+</tr>
+<tr>
+<td>filterQuality</td>
+<td>图像过滤器的质量级别。</td>
+<td>质量越低加载速度越快，质量越高加载速度越慢</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>fit图片拉伸模式</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BoxFit.fill</td>
+<td>全图显示，显示可能拉伸，充满</td>
+</tr>
+<tr>
+<td>BoxFit.contain</td>
+<td>全图显示，显示原比例，不需充满</td>
+</tr>
+<tr>
+<td>BoxFit.cover</td>
+<td>显示可能拉伸，可能裁剪，充满</td>
+</tr>
+<tr>
+<td>BoxFit.fitWidth</td>
+<td>显示可能拉伸，可能裁剪，宽度充满</td>
+</tr>
+<tr>
+<td>BoxFit.fitHeight</td>
+<td>显示可能拉伸，可能裁剪，高度充满</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>colorBlendMode</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear</td>
+<td>删除源图像和目标图像，不留任何内容</td>
+</tr>
+<tr>
+<td>Src</td>
+<td>删除目标图像，仅绘制源图像</td>
+</tr>
+<tr>
+<td>Dst</td>
+<td>源图像被丢弃</td>
+</tr>
+<tr>
+<td>srcOver</td>
+<td>将源图像合成到目标图像上</td>
+</tr>
+<tr>
+<td>dstOver</td>
+<td>这与[srcOver]相反，合成目标图像下的源图像</td>
+</tr>
+<tr>
+<td>srcIn</td>
+<td>显示源图像，但仅限于两个图像重叠的位置。该目标图像未呈现，它被直接视为蒙版。该目的地的颜色通道被忽略，只有不透明度有效果</td>
+</tr>
+<tr>
+<td>dstIn</td>
+<td>显示目标图像，但仅限于两个图像重叠的位置。该源图像未呈现，它仅被视为蒙版。颜色忽略源的通道，只有不透明度有效。</td>
+</tr>
+</tbody>
+</table>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/b975_7e3e_b594_64ef4915950da9757af2497c848ddbcb.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1介绍"><span class="toc-number">1.</span> <span class="toc-text"> 1.介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2常用方法"><span class="toc-number">2.</span> <span class="toc-text"> 2.常用方法</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
