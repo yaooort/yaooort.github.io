@@ -14,8 +14,10 @@ autoplay: true
 
 # 默认音乐
 mp3:
-  - http://link.hhtjim.com/163/5146554.mp3
-  - http://prr6elh1d.sabkt.gdipper.com/static/mp3/b975_7e3e_b594_64ef4915950da9757af2497c848ddbcb.mp3
+  - http://prr6elh1d.sabkt.gdipper.com/static/mp3/abc.mp3
+  - http://prr6elh1d.sabkt.gdipper.com/static/mp3/我们不一样.mp3
+  - http://prr6elh1d.sabkt.gdipper.com/static/mp3/山丘.mp3
+  - http://prr6elh1d.sabkt.gdipper.com/static/mp3/曾经的你.mp3
 
 # 首页封面图, 为空时取文章的cover作为封面
 welcome_cover: http://prr6elh1d.sabkt.gdipper.com/static/images/IMG_3334.jpg

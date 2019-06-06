@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cf573df-b497-435d-b48d-de84eb0d4b9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2019/05/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/05/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/2019/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/2019/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/archives/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/archives/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/Flutter/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/Flutter/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/19/Android-iOS-App代理包一键生成/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/Android-iOS-App代理包一键生成/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/19/Node-js安装/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/Node-js安装/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/19/iOS自动布局管理UIScrollview-并自适应软键盘弹出/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/iOS自动布局管理UIScrollview-并自适应软键盘弹出/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/19/mac电脑开启文件共享服务/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/mac电脑开启文件共享服务/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/19/缓存腾讯视频文件/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/缓存腾讯视频文件/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/22/BeautifulSoup-requests-爬虫初体验/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/22/BeautifulSoup-requests-爬虫初体验/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/24/Flutter笔记之MaterialApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/24/Flutter笔记之MaterialApp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/25/Flutter-笔记之-Container/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/25/Flutter-笔记之-Container/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/27/Flutter-之Row-Column/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/27/Flutter-之Row-Column/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/2019/05/28/Flutter之Image/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/28/Flutter之Image/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/Android/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/Android/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/tags/iOS/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/tags/iOS/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/diaspora/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/diaspora/_config.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,7 +27,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/themes/diaspora/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-163">
+              <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -54,8 +69,8 @@
         <option value="$PROJECT_DIR$/source/_posts/Flutter笔记之MaterialApp.md" />
         <option value="$PROJECT_DIR$/themes/diaspora/source/js/diaspora.js" />
         <option value="$PROJECT_DIR$/_config.yml" />
-        <option value="$PROJECT_DIR$/themes/diaspora/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/Flutter之Image.md" />
+        <option value="$PROJECT_DIR$/themes/diaspora/_config.yml" />
       </list>
     </option>
   </component>
@@ -73,8 +88,13 @@
         <subPane>
           <expand>
             <path>
-              <item name="yaooort" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yaooort" type="462c0819:PsiDirectoryNode" />
+              <item name="MD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MD" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MD" type="462c0819:PsiDirectoryNode" />
+              <item name=".deploy_git" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -92,8 +112,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/themes/diaspora/source/img" />
       <recent name="$PROJECT_DIR$/static/mp3" />
+      <recent name="$PROJECT_DIR$/themes/diaspora/source/img" />
       <recent name="$PROJECT_DIR$/themes" />
       <recent name="$PROJECT_DIR$/themes/miiiku/source" />
     </key>
@@ -125,11 +145,12 @@
       <workItem from="1558941451390" duration="4524000" />
       <workItem from="1559010843763" duration="1321000" />
       <workItem from="1559016873399" duration="308000" />
+      <workItem from="1559381730558" duration="915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11773000" />
+    <option name="totallyTimeSpent" value="14098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -206,15 +227,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/miiiku/layout/tag.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="144">
           <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/diaspora/layout/_partial/categories.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="72">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -223,7 +244,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/miiiku/layout/_partial/article-list.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="288">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
@@ -233,8 +254,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/miiiku/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="528">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -257,8 +278,8 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/如果青春留不住.md" />
     <entry file="file://$PROJECT_DIR$/themes/landscape/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        <state relative-caret-position="768">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -335,41 +356,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter-之Row-Column.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter-笔记之-Container.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/BeautifulSoup-requests-爬虫初体验.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="120">
             <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Android-iOS-App代理包一键生成.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           </first_editor>
           <second_editor />
         </state>
@@ -427,13 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/diaspora/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-339">
-          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/diaspora/source/img/logo.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -454,6 +438,43 @@
             <caret line="5" selection-start-line="5" selection-end-line="9" selection-end-column="5" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Android-iOS-App代理包一键生成.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="240">
+            <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter-笔记之-Container.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="123">
+            <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/Flutter-之Row-Column.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="264">
+            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/diaspora/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-163">
+          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>
