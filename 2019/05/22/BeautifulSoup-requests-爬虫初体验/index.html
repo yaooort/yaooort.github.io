@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="zh-Hans" class="loading">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -58,7 +58,7 @@ Beautiful Soup。名气大，整合了一些,">
 
     <div class="section">
         <div class="article">
-    <div class="main">
+    <div class='main'>
         <h1 class="title">BeautifulSoup requests 爬虫初体验</h1>
         <div class="stuff">
             <span>五月 22, 2019</span>
@@ -143,30 +143,38 @@ Beautiful Soup。名气大，整合了一些,">
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src>
+                <source type="audio/mpeg" src="">
             </audio>
             
                 <ul id="audio-list" style="display:none">
                     
-                        <li title="0" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/abc.mp3"></li>
+                        <li title='0' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/abc.mp3'></li>
                     
-                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/我们不一样.mp3"></li>
+                        <li title='1' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/我们不一样.mp3'></li>
                     
-                        <li title="2" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/山丘.mp3"></li>
+                        <li title='2' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/山丘.mp3'></li>
                     
-                        <li title="3" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/曾经的你.mp3"></li>
+                        <li title='3' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/曾经的你.mp3'></li>
                     
                 </ul>
             
         </div>
         
-    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='a890b5725d0d223421b3'
+        data-cs='56b6eba79c2ba3b6015d20fd458478237d6aa802'
+        data-r='yaooort.github.io'
+        data-o='Yaooort'
+        data-a='Yaooort'
+        data-d='false'
+    >查看评论</div>
 
 
     </div>
     
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#beautifulsoup-requests-爬虫初体验"><span class="toc-number">1.</span> <span class="toc-text"> BeautifulSoup requests 爬虫初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#beautiful-soup-网页解析还是非常简单粗暴的配合requests基本的爬取没有任何问题"><span class="toc-number">1.1.</span> <span class="toc-text"> Beautiful Soup 网页解析还是非常简单粗暴的(配合requests)基本的爬取没有任何问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#废话少说劈柴"><span class="toc-number">2.</span> <span class="toc-text"> 废话少说，劈柴</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1安装库"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 1.安装库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2具体步骤"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 2.具体步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3常用操作"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 3.常用操作</span></a></li></ol></li></ol>
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#beautifulsoup-requests-爬虫初体验"><span class="toc-number">1.</span> <span class="toc-text"> BeautifulSoup requests 爬虫初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#beautiful-soup-网页解析还是非常简单粗暴的配合requests基本的爬取没有任何问题"><span class="toc-number">1.1.</span> <span class="toc-text"> Beautiful Soup 网页解析还是非常简单粗暴的(配合requests)基本的爬取没有任何问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#废话少说劈柴"><span class="toc-number">2.</span> <span class="toc-text"> 废话少说，劈柴</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1安装库"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 1.安装库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2具体步骤"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 2.具体步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3常用操作"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 3.常用操作</span></a></li></ol></li></ol></li></ol>
         </div>
     
 </div>

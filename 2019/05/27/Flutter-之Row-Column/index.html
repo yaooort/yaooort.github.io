@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="zh-Hans" class="loading">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -60,7 +60,7 @@
 
     <div class="section">
         <div class="article">
-    <div class="main">
+    <div class='main'>
         <h1 class="title">Flutter-之Row/Column</h1>
         <div class="stuff">
             <span>五月 27, 2019</span>
@@ -145,30 +145,38 @@
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
-                <source type="audio/mpeg" src>
+                <source type="audio/mpeg" src="">
             </audio>
             
                 <ul id="audio-list" style="display:none">
                     
-                        <li title="0" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/abc.mp3"></li>
+                        <li title='0' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/abc.mp3'></li>
                     
-                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/我们不一样.mp3"></li>
+                        <li title='1' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/我们不一样.mp3'></li>
                     
-                        <li title="2" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/山丘.mp3"></li>
+                        <li title='2' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/山丘.mp3'></li>
                     
-                        <li title="3" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/曾经的你.mp3"></li>
+                        <li title='3' data-url='http://prr6elh1d.sabkt.gdipper.com/static/mp3/曾经的你.mp3'></li>
                     
                 </ul>
             
         </div>
         
-    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='a890b5725d0d223421b3'
+        data-cs='56b6eba79c2ba3b6015d20fd458478237d6aa802'
+        data-r='yaooort.github.io'
+        data-o='Yaooort'
+        data-a='Yaooort'
+        data-d='false'
+    >查看评论</div>
 
 
     </div>
     
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1rowcolumn"><span class="toc-number">1.</span> <span class="toc-text"> 1.Row/Column</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#11两者用法基本一样"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 1.1两者用法基本一样</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12基本属性设置"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 1.2基本属性设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2如果需要超出屏幕进行滑动只需要使用singlechildscrollview包裹rowcolumn就可以"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 2.如果需要超出屏幕进行滑动，只需要使用SingleChildScrollView包裹Row/Column就可以</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#21-safearea确定控件的安全区域"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 2.1 SafeArea确定控件的安全区域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#22-singlechildscrollview-的包裹view的大小超出可以滑动默认没有滚动条"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 2.2 SingleChildScrollView 的包裹view的大小超出可以滑动，默认没有滚动条</span></a></li></ol></li></ol>
+        <div class='side'>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1rowcolumn"><span class="toc-number">1.</span> <span class="toc-text"> 1.Row/Column</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#11两者用法基本一样"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 1.1两者用法基本一样</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12基本属性设置"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 1.2基本属性设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2如果需要超出屏幕进行滑动只需要使用singlechildscrollview包裹rowcolumn就可以"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 2.如果需要超出屏幕进行滑动，只需要使用SingleChildScrollView包裹Row/Column就可以</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#21-safearea确定控件的安全区域"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 2.1 SafeArea确定控件的安全区域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#22-singlechildscrollview-的包裹view的大小超出可以滑动默认没有滚动条"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 2.2 SingleChildScrollView 的包裹view的大小超出可以滑动，默认没有滚动条</span></a></li></ol></li></ol></li></ol>
         </div>
     
 </div>
