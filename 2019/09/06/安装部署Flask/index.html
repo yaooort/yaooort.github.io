@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CentOS7 安装部署Flask - Oort</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Oort Yaooort,"> 
+    <meta name="description" content="Oort个人博客, CentOS7 安装部署Flask
+
+针对 Flask + vue-admin + mysql + redis 的部署文档
+
+ 安装Nginx
+
+ 1.更新yum 源
+12&amp;gt; sudo rp,"> 
+    <meta name="author" content="Yaooort"> 
+    <link rel="alternative" href="atom.xml" title="Oort" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.ico"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Oort</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://yaooort.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">CentOS7 安装部署Flask</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">CentOS7 安装部署Flask</h1>
+        <div class="stuff">
+            <span>九月 06, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/CentOS/">CentOS</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Flask/">Flask</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Python/">Python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h4 id="centos7-安装部署flask"><a class="markdownIt-Anchor" href="#centos7-安装部署flask"></a> CentOS7 安装部署Flask</h4>
+<blockquote>
+<p>针对 Flask + vue-admin + mysql + redis 的部署文档</p>
+</blockquote>
+<h4 id="安装nginx"><a class="markdownIt-Anchor" href="#安装nginx"></a> 安装Nginx</h4>
+<blockquote>
+<h6 id="1更新yum-源"><a class="markdownIt-Anchor" href="#1更新yum-源"></a> 1.更新yum 源</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="2安装"><a class="markdownIt-Anchor" href="#2安装"></a> 2.安装</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo yum install nginx</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="3配置nginx"><a class="markdownIt-Anchor" href="#3配置nginx"></a> 3.配置nginx</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> // 1.设置开机启动</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> $ sudo systemctl <span class="built_in">enable</span> nginx</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 2.启动服务</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> $ sudo systemctl start nginx</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 3.停止服务</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> $ sudo systemctl restart nginx</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 4.重新加载，因为一般重新配置之后，不希望重启服务，这时可以使用重新加载。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> $ sudo systemctl reload nginx</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="4常见问题"><a class="markdownIt-Anchor" href="#4常见问题"></a> 4.常见问题</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> // 绑定其他端口</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // Nginx 默认绑定的端口是 http 协议的默认端口，端口号为：80，如果需要绑定其他端口，需要注意 SELinux 的配置</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 例如：绑定 8081 端口，但是会发现无法启动，一般的报错如下</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // YYYY/MM/DD hh:mm:ss [emerg] 46123<span class="comment">#0: bind() to 0.0.0.0:8081 failed (13: Permission denied)</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 此时需要更改 SELinux 的设置。我们使用 SELinux 的管理工具 semanage 进行操作，比较方便。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 安装 semanage 使用如下命令</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo yum install policycoreutils-python</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 然后查看是否有其他协议类型使用了此端口</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo semanage port -l | grep 8081</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> transproxy_port_t              tcp      8081</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 返回了结果，表明已经被其他类型占用了，类型为 transproxy_port_t。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 我们还要查看一下 Nginx 的在 SELinux 中的类型 http_port_t 绑定的端口</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo semanage port -l | grep http_port_t</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> http_port_t                    tcp      80, 81, 443, 488, 8008, 8009, 8443, 9000</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> pegasus_http_port_t            tcp      5988</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 第一行 http_port_t 中没有包含 8081 这个端口。因此需要修改 8081 端口到 http_port_t 类型中。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo semanage port -m -p tcp -t http_port_t 8081</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 如果没有其他协议类型使用想要绑定的端口，如 8001，则我们只要新增到 SELinux 中即可。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo semanage port -l | grep 8001</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> sudo semanage port -a -p tcp -t http_port_t 8001</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // 此时，重新启动 Nginx 即可。</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="防火墙操作"><a class="markdownIt-Anchor" href="#防火墙操作"></a> 防火墙操作</h4>
+<blockquote>
+<h6 id="1-查看已经开放的端口"><a class="markdownIt-Anchor" href="#1-查看已经开放的端口"></a> 1. 查看已经开放的端口</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> firewall-cmd --list-ports</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="2开启端口"><a class="markdownIt-Anchor" href="#2开启端口"></a> 2.开启端口</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> firewall-cmd --zone=public --add-port=80/tcp --permanent</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="3命令含义"><a class="markdownIt-Anchor" href="#3命令含义"></a> 3.命令含义：</h6>
+<blockquote>
+<p>–zone #作用域</p>
+<p>–add-port=80/tcp #添加端口，格式为：端口/通讯协议</p>
+<p>–permanent #永久生效，没有此参数重启后失效</p>
+</blockquote>
+<h6 id="4重启防火墙"><a class="markdownIt-Anchor" href="#4重启防火墙"></a> 4.重启防火墙</h6>
+<blockquote>
+<p>firewall-cmd --reload #重启firewall</p>
+<p>systemctl stop firewalld.service #停止firewall</p>
+<p>systemctl disable firewalld.service #禁止firewall开机启动</p>
+<p>firewall-cmd --state #查看默认防火墙状态（关闭后</p>
+</blockquote>
+</blockquote>
+<h4 id="centos-7-安装-python37"><a class="markdownIt-Anchor" href="#centos-7-安装-python37"></a> CentOS 7 安装 Python3.7</h4>
+<blockquote>
+<h6 id="1-我们先看看现有的-python2在哪里"><a class="markdownIt-Anchor" href="#1-我们先看看现有的-python2在哪里"></a> 1. 我们先看看现有的 python2在哪里</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> [root@lidan /]<span class="comment"># whereis python</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> python: /usr/bin/python /usr/bin/python2.7 /usr/bin/python.bak /usr/lib/python2.7 /usr/lib64/python2.7 /etc/python /usr/include/python2.7 /usr/share/man/man1/python.1.gz</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> [root@lidan bin]<span class="comment"># ll python*</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> lrwxrwxrwx. 1 root root    9 5月  27 2016 python2 -&gt; python2.7</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> -rwxr-xr-x. 1 root root 7136 11月 20 2015 python2.7</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> lrwxrwxrwx. 1 root root    7 5月  27 2016 python.bak -&gt; python2</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="2-接下来我们要安装编译-python3的相关包"><a class="markdownIt-Anchor" href="#2-接下来我们要安装编译-python3的相关包"></a> 2. 接下来我们要安装编译 Python3的相关包</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make libffi-devel</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>这里面有一个包很关键<code>libffi-devel</code>，因为只有3.7才会用到这个包，如果不安装这个包的话，在 make 阶段会出现如下的报错：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> ModuleNotFoundError: No module named <span class="string">'_ctypes'</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="3-安装pip因为-centos-是没有-pip-的"><a class="markdownIt-Anchor" href="#3-安装pip因为-centos-是没有-pip-的"></a> 3. 安装pip，因为 CentOs 是没有 pip 的。</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#运行这个命令添加epel扩展源 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> yum -y install epel-release </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#安装pip </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> yum install python-pip</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="4-可以用yum-安装-安装一下-wget"><a class="markdownIt-Anchor" href="#4-可以用yum-安装-安装一下-wget"></a> 4. 可以用yum 安装 安装一下 wget</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> yum -y install wget</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="5-我们可以下载-python37的源码包了"><a class="markdownIt-Anchor" href="#5-我们可以下载-python37的源码包了"></a> 5. 我们可以下载 python3.7的源码包了</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#解压缩</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> tar -zxvf Python-3.7.0.tgz</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#进入解压后的目录，依次执行下面命令进行手动编译</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> ./configure prefix=/usr/<span class="built_in">local</span>/python3 </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> make &amp;&amp; make install</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>如果最后没提示出错，就代表正确安装了，在/usr/local/目录下就会有python3目录</p>
+<h6 id="6-添加软链接"><a class="markdownIt-Anchor" href="#6-添加软链接"></a> 6. 添加软链接</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#添加python3的软链接 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> ln -s /usr/<span class="built_in">local</span>/python3/bin/python3.7 /usr/bin/python3.7 </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#添加 pip3 的软链接 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> ln -s /usr/<span class="built_in">local</span>/python3/bin/pip3.7 /usr/bin/pip3.7</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">#测试是否安装成功了 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> python -V</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="7-更改yum配置因为其要用到python2才能执行否则会导致yum不能正常使用不管安装-python3的那个版本都必须要做的"><a class="markdownIt-Anchor" href="#7-更改yum配置因为其要用到python2才能执行否则会导致yum不能正常使用不管安装-python3的那个版本都必须要做的"></a> 7. 更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用（不管安装 python3的那个版本，都必须要做的）</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> vi /usr/bin/yum </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 把 <span class="comment">#! /usr/bin/python 修改为 #! /usr/bin/python2 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> vi /usr/libexec/urlgrabber-ext-down </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 把 <span class="comment">#! /usr/bin/python 修改为 #! /usr/bin/python2</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="8安装pipenv"><a class="markdownIt-Anchor" href="#8安装pipenv"></a> 8.安装pipenv</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> pip install pipenv</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="9安装git"><a class="markdownIt-Anchor" href="#9安装git"></a> 9.安装git</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> yum install git</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="安装mysql80"><a class="markdownIt-Anchor" href="#安装mysql80"></a> 安装mysql8.0</h4>
+<blockquote>
+<h6 id="1下载mysql-yum包"><a class="markdownIt-Anchor" href="#1下载mysql-yum包"></a> 1.下载mysql yum包</h6>
+<p>官方下载地址:<a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/repo/yum/</a> 或者直接使用wget下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">wget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="2安装软件源"><a class="markdownIt-Anchor" href="#2安装软件源"></a> 2.安装软件源</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">rpm -Uvh https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="3安装mysql"><a class="markdownIt-Anchor" href="#3安装mysql"></a> 3.安装mysql</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">yum install mysql-community-server</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"><span class="comment"># 安装过程中如果出现y/n的话就一直y就行了，如果嫌麻烦可以用这个命令来安装</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">yum install -y mysql-community-server</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="4启动配置"><a class="markdownIt-Anchor" href="#4启动配置"></a> 4.启动&amp;配置</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"><span class="comment">#启动</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">service mysqld start</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"><span class="comment">#查看运行状态</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">service mysqld status</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"><span class="comment"># 看到绿色的running代表已经启动成功，然后mysql在5.6之后的版本都会默认生成一个默认密码，是root用户的。通过如下命令查看密码</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">grep <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.log</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="5进入mysql"><a class="markdownIt-Anchor" href="#5进入mysql"></a> 5.进入mysql</h6>
+<p>执行完如下命令之后输入默认密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">mysql -u root -p</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>修改root密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;密码&apos;;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>刷新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;flush privileges;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="6创建用户和分配权限"><a class="markdownIt-Anchor" href="#6创建用户和分配权限"></a> 6.创建用户和分配权限</h6>
+<p>由于mysql8新提供了一种密码加密方式caching-sha2-password，且为默认，目前很多客户端都不支持，所以我们在创建新角色用户的时候可以指定其为mysql_native_password，原来的root账户等不去做任何改变(<code>无形之中增加了安全性有木有</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;#创建一个test用户(一般情况下root用户只在本地环境下使用),密码是29dIg;2^，数据库的密码最好设置得连自己都记不住。</span><br><span class="line">&gt;CREATE USER &apos;test&apos;@&apos;%&apos; IDENTIFIED WITH mysql_native_password BY &apos;29dIg.2^&apos;;</span><br><span class="line">&gt;#授权数据库给用户，并设置所有ip都可以远程连接</span><br><span class="line">&gt;#如果只授予用户某些数据库的话就把*.*改成 数据库名称.*  意思就是 数据库.表</span><br><span class="line">&gt;#如果只授予用户某些权限的话，比如只能读不能写，就把GRANT ALL改成GRANT SELECT</span><br><span class="line">&gt;GRANT ALL ON *.* TO &apos;test&apos;@&apos;%&apos;;</span><br><span class="line">&gt;#当然，你也可以撤销授权,用法和授权几乎都是一样的。</span><br><span class="line">&gt;REVOKE ALL ON *.* from &apos;test&apos;@&apos;%&apos;; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="7总结"><a class="markdownIt-Anchor" href="#7总结"></a> 7.总结</h6>
+<p>官方表示 MySQL 8 要比 MySQL 5.7 快 <code>2</code> 倍，还带来了大量的改进和更快的性能！所以我也是第一时间把<a href="https://www.plaza4me.com/" target="_blank" rel="noopener">我的网站</a>的mysql数据库从5.7升级到了8.0版本。 有些大神已经总结了8.0的诸多好处，我就不多赘述了。</p>
+</blockquote>
+<h4 id="安装redis"><a class="markdownIt-Anchor" href="#安装redis"></a> 安装redis</h4>
+<blockquote>
+<h6 id="1安装"><a class="markdownIt-Anchor" href="#1安装"></a> 1.安装</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> yum -y install redis</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="2启动redis"><a class="markdownIt-Anchor" href="#2启动redis"></a> 2.启动redis</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> service redis start</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="3停止redis"><a class="markdownIt-Anchor" href="#3停止redis"></a> 3.停止redis</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> service redis stop</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="4查看redis运行状态"><a class="markdownIt-Anchor" href="#4查看redis运行状态"></a> 4.查看redis运行状态</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> service redis status</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="5查看redis进程"><a class="markdownIt-Anchor" href="#5查看redis进程"></a> 5.查看redis进程</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> ps -ef | grep redis</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="6设置redis为开机自动启动"><a class="markdownIt-Anchor" href="#6设置redis为开机自动启动"></a> 6.设置redis为开机自动启动</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> chkconfig redis on</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="7进入redis服务"><a class="markdownIt-Anchor" href="#7进入redis服务"></a> 7.进入redis服务</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 进入本机redis</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> redis-cli</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 列出所有key</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> keys *</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="8防火墙开放相应端口"><a class="markdownIt-Anchor" href="#8防火墙开放相应端口"></a> 8.防火墙开放相应端口</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 开启6379 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /sbin/iptables -I INPUT -p tcp --dport 6379 -j ACCEPT</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 开启6380 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /sbin/iptables -I INPUT -p tcp --dport 6380 -j ACCEPT</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 保存 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /etc/rc.d/init.d/iptables save</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># centos 7下执行 </span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> service iptables save</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="9修改redis默认端口和密码"><a class="markdownIt-Anchor" href="#9修改redis默认端口和密码"></a> 9.修改redis默认端口和密码</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 打开配置文件</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> vi /etc/redis.conf</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 修改默认端口，查找 port 6379 修改为相应端口即可</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 修改默认密码，查找 requirepass foobared 将 foobared 修改为你的密码</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 使用配置文件启动 redis</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> redis-server /etc/redis.conf &amp;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 使用端口登录</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> redis-cli -h 127.0.0.1 -p 6179</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 此时再输入命令则会报错</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 输入刚才输入的密码</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> auth 111</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 停止redis</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> redis-cli -h 127.0.0.1 -p 6179 shutdown</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 使用进程ID杀死</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> ps -ef | grep redis <span class="built_in">kill</span> -9 XXX</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment"># 使用redis desktop manager远程连接redis</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="uwsgi安装配置"><a class="markdownIt-Anchor" href="#uwsgi安装配置"></a> uwsgi安装配置</h4>
+<blockquote>
+<h6 id="1直接使用pip-安装uwsgi"><a class="markdownIt-Anchor" href="#1直接使用pip-安装uwsgi"></a> 1.直接使用pip 安装uwsgi</h6>
+<p>安装完成后配置uwsgi.ini文件</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&gt; [uwsgi]</span><br><span class="line">&gt; # 暴露给nginx代理的端口及ip</span><br><span class="line">&gt; socket=0.0.0.0:9090</span><br><span class="line">&gt; # 启动主进程，来管理其他进程，其它的uwsgi进程都是这个master进程的子进程，如果kill这个master进程，相当于重启所有的uwsgi进程。</span><br><span class="line">&gt; master=true</span><br><span class="line">&gt; # 在app加载前切换到当前目录， 指定运行目录</span><br><span class="line">&gt; chdir=/home/app/</span><br><span class="line">&gt; # 启动uwsgi的用户名和用户组</span><br><span class="line">&gt; uid=root</span><br><span class="line">&gt; gid=root</span><br><span class="line">&gt; #指定虚拟环境路径</span><br><span class="line">&gt; home=/root/.local/share/virtualenvs/app-4uwEKS64</span><br><span class="line">&gt; # 指定加载wsgi文件 app入口</span><br><span class="line">&gt; wsgi-file=app.py</span><br><span class="line">&gt; # uWSGI加载的模块中哪个变量将被调用</span><br><span class="line">&gt; callable=app</span><br><span class="line">&gt; # 设置工作进程的数量</span><br><span class="line">&gt; processes=1</span><br><span class="line">&gt; # 设置每个工作进程的线程数</span><br><span class="line">&gt; threads=4</span><br><span class="line">&gt; # 序列化接受的内容，如果可能的话</span><br><span class="line">&gt; thunder-lock=true</span><br><span class="line">&gt; # 设置缓冲</span><br><span class="line">&gt; post-buffering=4096</span><br><span class="line">&gt; # 缓冲区</span><br><span class="line">&gt; # buffer-size = 32768</span><br><span class="line">&gt; #允许用内嵌的语言启动线程。这将允许你在app程序中产生一个子线程</span><br><span class="line">&gt; enable-threads = true</span><br><span class="line">&gt; #设置在平滑的重启（直到接收到的请求处理完才重启）一个工作子进程中，等待这个工作&gt;结束的最长秒数。这个配置会使在平滑地重启工作子进程中，如果工作进程结束时间超过了</span><br><span class="line">&gt; #8秒就会被强行结束（忽略之前已经接收到的请求而直接结束）</span><br><span class="line">&gt; reload-mercy = 8</span><br><span class="line">&gt; #为每个工作进程设置请求数的上限。当一个工作进程处理的请求数达到这个值，那么该工&gt;作进程就会被回收重用（重启）。你可以使用这个选项来默默地对抗内存泄漏</span><br><span class="line">&gt; max-requests = 5000</span><br><span class="line">&gt; #通过使用POSIX/UNIX的setrlimit()函数来限制每个uWSGI进程的虚拟内存使用数。这个配&gt;置会限制uWSGI的进程占用虚拟内存不超过256M。如果虚拟内存已经达到256M，并继续申请&gt;虚拟内存则会使程序报内存错误，本次的http请求将返回500错误。</span><br><span class="line">&gt; limit-as = 256</span><br><span class="line">&gt; #一个请求花费的时间超过了这个harakiri超时时间，那么这个请求都会被丢弃，并且当前&gt;处理这个请求的工作进程会被回收再利用（即重启）</span><br><span class="line">&gt; harakiri = 60</span><br><span class="line">&gt; # sock文件权限</span><br><span class="line">&gt; chmod-socket=666</span><br><span class="line">&gt; # log日志权限</span><br><span class="line">&gt; logfile-chmod=644</span><br><span class="line">&gt; # uwsgi的进程名称前缀</span><br><span class="line">&gt; procname-prefix-spaced=mysite</span><br><span class="line">&gt; </span><br><span class="line">&gt; # py文件修改，自动加载</span><br><span class="line">&gt; # py-autoreload=1</span><br><span class="line">&gt; </span><br><span class="line">&gt; # 监听端口，测试时候使用</span><br><span class="line">&gt; # http=0.0.0.0:8080</span><br><span class="line">&gt; </span><br><span class="line">&gt; # 退出uwsgi是否清理中间文件，包含pid、sock和status文件</span><br><span class="line">&gt; vacuum=true</span><br><span class="line">&gt; </span><br><span class="line">&gt; # socket文件，配置nginx时候使用</span><br><span class="line">&gt; socket=%(chdir)/uwsgi.sock</span><br><span class="line">&gt; </span><br><span class="line">&gt; # status文件，可以查看uwsgi的运行状态</span><br><span class="line">&gt; stats=%(chdir)/uwsgi.status</span><br><span class="line">&gt; </span><br><span class="line">&gt; # pid文件，通过该文件可以控制uwsgi的重启和停止</span><br><span class="line">&gt; pidfile=%(chdir)/uwsgi.pid</span><br><span class="line">&gt; </span><br><span class="line">&gt; </span><br><span class="line">&gt; # 日志文件，通过该文件查看uwsgi的日志</span><br><span class="line">&gt; daemonize=%(chdir)/uwsgi.log</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="2启动"><a class="markdownIt-Anchor" href="#2启动"></a> 2.启动</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> uwsgi --ini uwsgi.ini</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="3停止"><a class="markdownIt-Anchor" href="#3停止"></a> 3.停止</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> uwsgi --stop uwsgi.pid</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<h6 id="4重启"><a class="markdownIt-Anchor" href="#4重启"></a> 4.重启</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> uwsgi --reload uwsgi.pid</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/abc.mp3"></li>
+                    
+                        <li title="1" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/我们不一样.mp3"></li>
+                    
+                        <li title="2" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/山丘.mp3"></li>
+                    
+                        <li title="3" data-url="http://prr6elh1d.sabkt.gdipper.com/static/mp3/曾经的你.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="true" data-ci="a890b5725d0d223421b3" data-cs="56b6eba79c2ba3b6015d20fd458478237d6aa802" data-r="yaooort.github.io" data-o="Yaooort" data-a="Yaooort" data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#centos7-安装部署flask"><span class="toc-number">1.</span> <span class="toc-text"> CentOS7 安装部署Flask</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装nginx"><span class="toc-number">2.</span> <span class="toc-text"> 安装Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1更新yum-源"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 1.更新yum 源</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2安装"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 2.安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3配置nginx"><span class="toc-number">2.0.3.</span> <span class="toc-text"> 3.配置nginx</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4常见问题"><span class="toc-number">2.0.4.</span> <span class="toc-text"> 4.常见问题</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#防火墙操作"><span class="toc-number">3.</span> <span class="toc-text"> 防火墙操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-查看已经开放的端口"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 1. 查看已经开放的端口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2开启端口"><span class="toc-number">3.0.2.</span> <span class="toc-text"> 2.开启端口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3命令含义"><span class="toc-number">3.0.3.</span> <span class="toc-text"> 3.命令含义：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4重启防火墙"><span class="toc-number">3.0.4.</span> <span class="toc-text"> 4.重启防火墙</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#centos-7-安装-python37"><span class="toc-number">4.</span> <span class="toc-text"> CentOS 7 安装 Python3.7</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-我们先看看现有的-python2在哪里"><span class="toc-number">4.0.1.</span> <span class="toc-text"> 1. 我们先看看现有的 python2在哪里</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-接下来我们要安装编译-python3的相关包"><span class="toc-number">4.0.2.</span> <span class="toc-text"> 2. 接下来我们要安装编译 Python3的相关包</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-安装pip因为-centos-是没有-pip-的"><span class="toc-number">4.0.3.</span> <span class="toc-text"> 3. 安装pip，因为 CentOs 是没有 pip 的。</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-可以用yum-安装-安装一下-wget"><span class="toc-number">4.0.4.</span> <span class="toc-text"> 4. 可以用yum 安装 安装一下 wget</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-我们可以下载-python37的源码包了"><span class="toc-number">4.0.5.</span> <span class="toc-text"> 5. 我们可以下载 python3.7的源码包了</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6-添加软链接"><span class="toc-number">4.0.6.</span> <span class="toc-text"> 6. 添加软链接</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7-更改yum配置因为其要用到python2才能执行否则会导致yum不能正常使用不管安装-python3的那个版本都必须要做的"><span class="toc-number">4.0.7.</span> <span class="toc-text"> 7. 更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用（不管安装 python3的那个版本，都必须要做的）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8安装pipenv"><span class="toc-number">4.0.8.</span> <span class="toc-text"> 8.安装pipenv</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#9安装git"><span class="toc-number">4.0.9.</span> <span class="toc-text"> 9.安装git</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装mysql80"><span class="toc-number">5.</span> <span class="toc-text"> 安装mysql8.0</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1下载mysql-yum包"><span class="toc-number">5.0.1.</span> <span class="toc-text"> 1.下载mysql yum包</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2安装软件源"><span class="toc-number">5.0.2.</span> <span class="toc-text"> 2.安装软件源</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3安装mysql"><span class="toc-number">5.0.3.</span> <span class="toc-text"> 3.安装mysql</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4启动配置"><span class="toc-number">5.0.4.</span> <span class="toc-text"> 4.启动&amp;配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5进入mysql"><span class="toc-number">5.0.5.</span> <span class="toc-text"> 5.进入mysql</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6创建用户和分配权限"><span class="toc-number">5.0.6.</span> <span class="toc-text"> 6.创建用户和分配权限</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7总结"><span class="toc-number">5.0.7.</span> <span class="toc-text"> 7.总结</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装redis"><span class="toc-number">6.</span> <span class="toc-text"> 安装redis</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1安装"><span class="toc-number">6.0.1.</span> <span class="toc-text"> 1.安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2启动redis"><span class="toc-number">6.0.2.</span> <span class="toc-text"> 2.启动redis</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3停止redis"><span class="toc-number">6.0.3.</span> <span class="toc-text"> 3.停止redis</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4查看redis运行状态"><span class="toc-number">6.0.4.</span> <span class="toc-text"> 4.查看redis运行状态</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5查看redis进程"><span class="toc-number">6.0.5.</span> <span class="toc-text"> 5.查看redis进程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6设置redis为开机自动启动"><span class="toc-number">6.0.6.</span> <span class="toc-text"> 6.设置redis为开机自动启动</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7进入redis服务"><span class="toc-number">6.0.7.</span> <span class="toc-text"> 7.进入redis服务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8防火墙开放相应端口"><span class="toc-number">6.0.8.</span> <span class="toc-text"> 8.防火墙开放相应端口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#9修改redis默认端口和密码"><span class="toc-number">6.0.9.</span> <span class="toc-text"> 9.修改redis默认端口和密码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uwsgi安装配置"><span class="toc-number">7.</span> <span class="toc-text"> uwsgi安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1直接使用pip-安装uwsgi"><span class="toc-number">7.0.1.</span> <span class="toc-text"> 1.直接使用pip 安装uwsgi</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2启动"><span class="toc-number">7.0.2.</span> <span class="toc-text"> 2.启动</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3停止"><span class="toc-number">7.0.3.</span> <span class="toc-text"> 3.停止</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4重启"><span class="toc-number">7.0.4.</span> <span class="toc-text"> 4.重启</span></a></li></ol></li>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
