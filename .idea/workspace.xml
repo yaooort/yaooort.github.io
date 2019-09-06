@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cf573df-b497-435d-b48d-de84eb0d4b9f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/source/_posts/安装部署Flask.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/19/Android-iOS-App代理包一键生成/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/Android-iOS-App代理包一键生成/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/19/Node-js安装/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/Node-js安装/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/19/iOS自动布局管理UIScrollview-并自适应软键盘弹出/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/iOS自动布局管理UIScrollview-并自适应软键盘弹出/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/19/mac电脑开启文件共享服务/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/mac电脑开启文件共享服务/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/19/缓存腾讯视频文件/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/19/缓存腾讯视频文件/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/22/BeautifulSoup-requests-爬虫初体验/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/22/BeautifulSoup-requests-爬虫初体验/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/24/Flutter笔记之MaterialApp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/24/Flutter笔记之MaterialApp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/25/Flutter-笔记之-Container/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/25/Flutter-笔记之-Container/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/27/Flutter-之Row-Column/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/27/Flutter-之Row-Column/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/2019/05/28/Flutter之Image/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/2019/05/28/Flutter之Image/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/categories/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/categories/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/diaspora/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/diaspora/_config.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +17,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/diaspora/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-163">
-              <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            <state relative-caret-position="24">
+              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-342">
+                <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="16" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/安装部署Flask.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="335">
+                <caret line="449" lean-forward="true" selection-start-line="449" selection-end-line="449" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/缓存腾讯视频文件.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="264">
+                <caret line="11" column="3" lean-forward="true" selection-start-line="1" selection-end-line="11" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -71,6 +96,7 @@
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/Flutter之Image.md" />
         <option value="$PROJECT_DIR$/themes/diaspora/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/安装部署Flask.md" />
       </list>
     </option>
   </component>
@@ -84,6 +110,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -94,13 +121,18 @@
             <path>
               <item name="MD" type="b2602c69:ProjectViewProjectNode" />
               <item name="MD" type="462c0819:PsiDirectoryNode" />
-              <item name=".deploy_git" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MD" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -146,11 +178,12 @@
       <workItem from="1559010843763" duration="1321000" />
       <workItem from="1559016873399" duration="308000" />
       <workItem from="1559381730558" duration="915000" />
+      <workItem from="1567744604706" duration="516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14098000" />
+    <option name="totallyTimeSpent" value="14614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -178,16 +211,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/themes/miiiku/source/favicon.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/miiiku/source/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/themes/miiiku/scripts/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -473,8 +496,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/diaspora/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-163">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        <state relative-caret-position="24">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-342">
+            <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-end-line="4" selection-end-column="16" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/缓存腾讯视频文件.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="264">
+            <caret line="11" column="3" lean-forward="true" selection-start-line="1" selection-end-line="11" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/安装部署Flask.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="335">
+            <caret line="449" lean-forward="true" selection-start-line="449" selection-end-line="449" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
